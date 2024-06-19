@@ -1,0 +1,76 @@
+.sideBar-container {
+    box-shadow: 1px 1px 8px 1px #888888;
+    height: 100%;
+    width: 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center;*/
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: white;
+}
+
+.nameAndIcon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+.close-icon {
+    position: relative;
+    top: -7px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(112, 110, 110);
+    border-radius: 10px;
+}
+
+.companyName {
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sidebar-child-title {
+    text-align: left;
+    width: 83.5%;
+    color: gray;
+}
+
+.sidebar-child-link {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    text-decoration: none;
+    color: black;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 11rem;
+    /* background-color: aqua; */
+    border-radius: 5px;
+}
+
+.sidebar-child-link:hover {
+    background-color: rgb(59, 122, 239);
+    color: white;
+}

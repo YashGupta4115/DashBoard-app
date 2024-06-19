@@ -4,9 +4,9 @@ import { LuShoppingCart } from "react-icons/lu";
 import { FiMessageSquare } from "react-icons/fi";
 import { LuBell } from "react-icons/lu";
 import { FaRegCircle } from "react-icons/fa";
-import "./navBar.styles.css";
+import "./Navbar.styles.css";
 import { useContext } from "react";
-import { SideBarContext } from "../context/sideBarContext";
+import { SideBarContext } from "../../Context/Sidebar.context";
 
 const Navbar = () => {
   const { isSideBarOpen, toggleSideBar } = useContext(SideBarContext);
