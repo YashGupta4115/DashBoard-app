@@ -8,12 +8,24 @@
     align-items: center;
 }
 
-.navBar-icons{
-    margin-right : 1rem;
-    cursor: pointer;
-}
 .navBar-company-title{
     position: relative;
     top : -4px;
     margin-right: 1rem;
+}
+
+.right-navbar-container{
+    display: flex;
+}
+
+.navBar-icons {
+    margin-right: 1.2rem;
+    cursor: pointer;
+}
+
+.navBar-icon-value{
+     position: relative;
+     left : -20px;
+    top : -20px;
+     font-size: 10px;
 }

@@ -2,10 +2,17 @@ import { Link } from "react-router-dom";
 import "./sidebar.styles.css";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useContext } from "react";
-import { SideBarContext } from "../../Context/Sidebar.context";
+import { SideBarContext } from "../../Context/contextProvider";
 
 const Sidebar = () => {
-  const { isSideBarOpen, toggleSideBar } = useContext(SideBarContext);
+  const { isSideBarOpen, setIsSideBarOpen, toggleSideBar, screenSize } =
+    useContext(SideBarContext);
+
+  const handleCloseSideBar = () => {
+    if (isSideBarOpen && screenSize <= 900) {
+      setIsSideBarOpen(false);
+    }
+  };
 
   return (
     isSideBarOpen && (
@@ -24,54 +31,110 @@ const Sidebar = () => {
 
         <div className="pages-container  sidebar-child">
           <span className="sidebar-child-title">PAGES</span>
-          <Link className="sidebar-child-link" to="/pages/orders">
+          <Link
+            className="sidebar-child-link"
+            to="/pages/orders"
+            onClick={handleCloseSideBar}
+          >
             Orders
           </Link>
-          <Link className="sidebar-child-link" to="/pages/customers">
+          <Link
+            className="sidebar-child-link"
+            to="/pages/customers"
+            onClick={handleCloseSideBar}
+          >
             Customers
           </Link>
-          <Link className="sidebar-child-link" to="/pages/employees">
+          <Link
+            className="sidebar-child-link"
+            to="/pages/employees"
+            onClick={handleCloseSideBar}
+          >
             Employees
           </Link>
         </div>
 
         <div className="apps-container  sidebar-child">
           <span className="sidebar-child-title">APPS</span>
-          <Link className="sidebar-child-link" to="/apps/calendar">
+          <Link
+            className="sidebar-child-link"
+            to="/apps/calendar"
+            onClick={handleCloseSideBar}
+          >
             Calendar
           </Link>
-          <Link className="sidebar-child-link" to="/apps/colorPicker">
+          <Link
+            className="sidebar-child-link"
+            to="/apps/colorPicker"
+            onClick={handleCloseSideBar}
+          >
             ColorPicker
           </Link>
-          <Link className="sidebar-child-link" to="/apps/kanban">
+          <Link
+            className="sidebar-child-link"
+            to="/apps/kanban"
+            onClick={handleCloseSideBar}
+          >
             Kanban
           </Link>
-          <Link className="sidebar-child-link" to="/apps/editor">
+          <Link
+            className="sidebar-child-link"
+            to="/apps/editor"
+            onClick={handleCloseSideBar}
+          >
             Editor
           </Link>
         </div>
 
         <div className="charts-container sidebar-child ">
           <span className="sidebar-child-title">CHARTS</span>
-          <Link className="sidebar-child-link" to="/charts/Area">
+          <Link
+            className="sidebar-child-link"
+            to="/charts/Area"
+            onClick={handleCloseSideBar}
+          >
             Area
           </Link>
-          <Link className="sidebar-child-link" to="/charts/line">
+          <Link
+            className="sidebar-child-link"
+            to="/charts/line"
+            onClick={handleCloseSideBar}
+          >
             Line
           </Link>
-          <Link className="sidebar-child-link" to="/charts/color">
+          <Link
+            className="sidebar-child-link"
+            to="/charts/color"
+            onClick={handleCloseSideBar}
+          >
             Color
           </Link>
-          <Link className="sidebar-child-link" to="/charts/pie">
+          <Link
+            className="sidebar-child-link"
+            to="/charts/pie"
+            onClick={handleCloseSideBar}
+          >
             Pie
           </Link>
-          <Link className="sidebar-child-link" to="/charts/finance">
+          <Link
+            className="sidebar-child-link"
+            to="/charts/finance"
+            onClick={handleCloseSideBar}
+          >
             Finance
           </Link>
-          <Link className="sidebar-child-link" to="/charts/pyramid">
+          <Link
+            className="sidebar-child-link"
+            to="/charts/pyramid"
+            onClick={handleCloseSideBar}
+          >
             Pyramid
           </Link>
-          <Link className="sidebar-child-link" to="/charts/bar">
+          <Link
+            className="sidebar-child-link"
+            to="/charts/bar"
+            onClick={handleCloseSideBar}
+          >
             Bar
           </Link>
         </div>

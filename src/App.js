@@ -17,7 +17,7 @@ import Finance from './routes/Charts/Finance/Finance';
 import Pyramid from './routes/Charts/Pyramid/Pyramid';
 import Bar from './routes/Charts/Bar/Bar';
 import { useContext } from 'react';
-import { SideBarContext } from './Context/Sidebar.context';
+import { SideBarContext } from './Context/contextProvider';
 
 function App() {
 
