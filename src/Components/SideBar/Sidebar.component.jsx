@@ -26,7 +26,9 @@ const Sidebar = () => {
         </div>
         <div className="dashBoard-continer sidebar-child">
           <span className="sidebar-child-title">DASHBOARD</span>
-          <Link className="sidebar-child-link">E-commerce</Link>
+          <Link className="sidebar-child-link" to="/">
+            E-commerce
+          </Link>
         </div>
 
         <div className="pages-container  sidebar-child">

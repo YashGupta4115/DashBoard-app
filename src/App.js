@@ -18,6 +18,7 @@ import Pyramid from './routes/Charts/Pyramid/Pyramid';
 import Bar from './routes/Charts/Bar/Bar';
 import { useContext } from 'react';
 import { SideBarContext } from './Context/contextProvider';
+import ECommerce from './routes/dashboard/E-commerce/ECommerce';
 
 function App() {
 
@@ -29,6 +30,8 @@ function App() {
       <div className={isSideBarOpen?'main-page-container-partial':'main-page-container-full'}>
         <Navbar/>
         <Routes>
+          <Route index element={<ECommerce/>}/>
+
           <Route path='/apps'>
             <Route path='/apps/calendar' element={<Calendar/>}/>
             <Route path='/apps/editor' element={<Editor/>}/>

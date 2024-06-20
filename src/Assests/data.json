@@ -1,0 +1,172 @@
+{
+  "customers": [
+    {
+      "id": "cust_001",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "+1234567890",
+      "address": "123 Elm Street, Springfield",
+      "joinDate": "2022-01-15"
+    },
+    {
+      "id": "cust_002",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "+0987654321",
+      "address": "456 Oak Avenue, Metropolis",
+      "joinDate": "2023-05-22"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "price": 29.99,
+      "stock": 150,
+      "sold": 120,
+      "rating": 4.5
+    },
+    {
+      "id": "prod_002",
+      "name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "price": 49.99,
+      "stock": 200,
+      "sold": 180,
+      "rating": 4.7
+    }
+  ],
+  "sales": [
+    {
+      "id": "sale_001",
+      "productId": "prod_001",
+      "customerId": "cust_001",
+      "date": "2023-06-10",
+      "quantity": 2,
+      "totalPrice": 59.98
+    },
+    {
+      "id": "sale_002",
+      "productId": "prod_002",
+      "customerId": "cust_002",
+      "date": "2023-06-15",
+      "quantity": 1,
+      "totalPrice": 49.99
+    }
+  ],
+  "refunds": [
+    {
+      "id": "refund_001",
+      "saleId": "sale_001",
+      "date": "2023-06-20",
+      "amount": 29.99,
+      "reason": "Defective item"
+    }
+  ],
+  "revenue": {
+    "Budget": 5000,
+    "expense": 3000
+  },
+  "earnings": {
+    "monthly": [
+      {
+        "month": "2023-05",
+        "revenue": 8000,
+        "profit": 5000
+      },
+      {
+        "month": "2023-06",
+        "revenue": 8500,
+        "profit": 5200
+      }
+    ],
+    "yearly": [
+      {
+        "year": "2022",
+        "revenue": 95000,
+        "profit": 60000
+      },
+      {
+        "year": "2023",
+        "revenue": 102000,
+        "profit": 65000
+      }
+    ]
+  },
+  "recentTransactions": [
+    {
+      "id": "trans_001",
+      "type": "Wallet",
+      "amount": 100,
+      "date": "2023-06-10",
+      "description": "Wallet top-up",
+      "icon": "CiWallet",
+      "backgroundColor": "rgb(237, 124, 239)"
+    },
+    {
+      "id": "trans_002",
+      "type": "Refund",
+      "amount": 29.99,
+      "date": "2023-06-20",
+      "description": "Refund for defective item",
+      "icon": "TbCreditCardRefund",
+      "backgroundColor": "rgb(251, 210, 159)"
+    },
+    {
+      "id": "trans_003",
+      "type": "Bank Loan Payment",
+      "amount": 500,
+      "date": "2023-06-25",
+      "description": "Monthly loan payment",
+      "icon" : "MdPayments",
+      "backgroundColor": "rgb(130, 248, 154)"
+
+    }
+  ],
+  "salesOverview": {
+    "2021": {
+      "totalSales": 120000,
+      "totalRevenue": 75000
+    },
+    "2022": {
+      "totalSales": 135000,
+      "totalRevenue": 90000
+    },
+    "2023": {
+      "totalSales": 145000,
+      "totalRevenue": 95000
+    }
+  },
+  "topProducts": [
+    {
+      "productId": "prod_001",
+      "name": "Wireless Mouse",
+      "sold": 120
+    },
+    {
+      "productId": "prod_002",
+      "name": "Bluetooth Speaker",
+      "sold": 180
+    }
+  ],
+  "bestSellers": [
+    {
+      "productId": "prod_002",
+      "name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "sold": 180
+    },
+    {
+      "productId": "prod_001",
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "sold": 120
+    }
+  ],
+  "Refunds": [{
+"total": "100000"
+  }
+    
+  ]
+}

@@ -1,0 +1,150 @@
+/* Overall Page */
+.e-commerce-page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-top : 1rem;
+}
+
+.earning-and-greeting-Section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: pink;
+    height: 150px;
+    width: 100%;
+    background-image: url('../../../Assests/Green\,\ Red\ and\ Yellow\ Illustrative\ E-commerce\ Store\ Mobile\ Video.png');
+
+}
+
+.earning-section {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 800;
+    font-size: 2rem;
+    color : white
+}
+
+.greeting-section {
+    margin-right: 1rem;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.stats-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+    /* background-color: rgb(179, 241, 179); */
+}
+.gray-text{
+    color: gray;
+}
+.bold-600-text{
+    font-weight: 600;
+}
+
+.stats-icon{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    padding : 15px;
+    border-radius: 30px;
+}
+
+.ecommerce-stats-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.revenue-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    margin-top : 2rem;
+}
+
+.revenue-stat-section{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.revenue-stat-left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: left;
+}
+.revenue-figures{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.revenue-figure-text{
+    position: relative;
+    left: -28px;
+
+}
+
+.revenue-section-headers{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.revenue-graph-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.more-revenue-graph-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.recent-transaction-section {
+    margin-top : 2rem;
+}
+.recent-transaction-items{
+    display: flex;
+    align-items: center;
+    margin-top : 1rem
+}
+.recent-transaction-type{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 2rem;
+}
+
+
+.extra-information{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.test{
+    background-color: rgb(237, 124, 239);
+}

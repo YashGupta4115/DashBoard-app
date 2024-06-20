@@ -1,3 +1,9 @@
+body{
+  position: absolute;
+  overflow-y: scroll;
+  width: 100%;
+}
+
 .page-contiainer{
   display: flex;
 }
