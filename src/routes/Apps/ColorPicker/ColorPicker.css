@@ -1,0 +1,13 @@
+.colorPicker-container{
+    display: flex;
+    flex-direction: column;
+    margin-top : 5rem;
+    width : 90%;
+}
+
+.wrap{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top : 2rem;
+}
