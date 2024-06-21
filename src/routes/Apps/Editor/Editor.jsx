@@ -11,9 +11,6 @@ import {
   RichTextEditorComponent,
   Toolbar,
 } from "@syncfusion/ej2-react-richtexteditor";
-
-import { EditorData } from "../../../Assests/data/dummy";
-
 const Editor = () => {
   const iframeSetting: object = { enable: true };
   return (

@@ -24,6 +24,7 @@ import {
 import SparkLine from "../../../Components/SparkLine/SparkLine";
 import Stacked from "../../../Components/Stacked/Stacked";
 import Button from "../../../Components/Button/Button";
+import { useTheme } from "../../../Context/themeContext";
 
 const ECommerce = () => {
   const iconMapping = {
@@ -32,7 +33,9 @@ const ECommerce = () => {
     MdPayments: MdPayments,
   };
 
-  const [theme, setTheme] = useState("#7352FF");
+  const [themeButton] = useState("#7352FF");
+
+  const { theme } = useTheme();
 
   // console.log(data);
   return (
@@ -43,19 +46,25 @@ const ECommerce = () => {
             Earnings{" "}
             <HiOutlineCurrencyRupee
               style={{
-                color: theme,
+                color: themeButton,
                 borderRadius: "20px",
               }}
             />{" "}
           </span>
           Rs.{<GetTotalEarning />}
-          <Button color={theme} text="Download" />
+          <Button color={themeButton} text="Download" />
         </div>
         <div className="greeting-section"></div>
       </div>
 
       <div className="stats-section">
-        <div className="ecommerce-stats-item">
+        <div
+          className={
+            theme === "light"
+              ? "ecommerce-stats-item"
+              : "ecommerce-stats-item-dark"
+          }
+        >
           <IoPeopleOutline
             style={{ backgroundColor: "rgb(234, 234, 54)" }}
             className="stats-icon"
@@ -63,7 +72,13 @@ const ECommerce = () => {
           <span className="bold-600-text">{<GetTotalCustomers />}</span>
           <span className="gray-text">Customers</span>
         </div>
-        <div className="ecommerce-stats-item">
+        <div
+          className={
+            theme === "light"
+              ? "ecommerce-stats-item"
+              : "ecommerce-stats-item-dark"
+          }
+        >
           <AiOutlineProduct
             style={{ backgroundColor: "rgb(130, 130, 232)" }}
             className="stats-icon"
@@ -72,7 +87,13 @@ const ECommerce = () => {
           <span className="gray-text">Products</span>
         </div>
 
-        <div className="ecommerce-stats-item">
+        <div
+          className={
+            theme === "light"
+              ? "ecommerce-stats-item"
+              : "ecommerce-stats-item-dark"
+          }
+        >
           <FaRegChartBar
             style={{ backgroundColor: "rgb(243, 187, 187)" }}
             className="stats-icon"
@@ -80,7 +101,13 @@ const ECommerce = () => {
           <span className="bold-600-text">{<GetTotalSales />}</span>
           <span className="gray-text">Sales</span>
         </div>
-        <div className="ecommerce-stats-item">
+        <div
+          className={
+            theme === "light"
+              ? "ecommerce-stats-item"
+              : "ecommerce-stats-item-dark"
+          }
+        >
           <TbCreditCardRefund
             style={{ backgroundColor: "rgb(179, 241, 179)" }}
             className="stats-icon"
@@ -90,7 +117,11 @@ const ECommerce = () => {
         </div>
       </div>
 
-      <div className="revenue-section">
+      <div
+        className={
+          theme === "light" ? "revenue-section" : "revenue-section-dark"
+        }
+      >
         <div className="revenue-section-headers">
           <span className="bold-600-text">Revenue Updates</span>
           <span className="revenueUpdates-graph-legend">
@@ -105,39 +136,63 @@ const ECommerce = () => {
 
         <div className="revenue-stat-section">
           <div className="revenue-stat-left">
-            <div className="ecommerce-stats-item">
+            <div
+              className={
+                theme === "light"
+                  ? "ecommerce-stats-item"
+                  : "ecommerce-stats-item-dark"
+              }
+            >
               <span className="revenue-figures">
                 Rs.
                 <GetBudget />
               </span>
               <span className="gray-text revenue-figure-text">Budget</span>
             </div>
-            <div className="ecommerce-stats-item">
+            <div
+              className={
+                theme === "light"
+                  ? "ecommerce-stats-item"
+                  : "ecommerce-stats-item-dark"
+              }
+            >
               <span className="revenue-figures">
                 Rs.
                 <GetExpense />
               </span>
               <span className="gray-text revenue-figure-text">Expense</span>
             </div>
-            <div>
+            <div
+              className={
+                theme === "light"
+                  ? "ecommerce-stats-item"
+                  : "ecommerce-stats-item-dark"
+              }
+            >
               <SparkLine
                 currentColor="blue"
                 id="line-sparkline"
                 type="Line"
                 height="80px"
-                width="250px"
+                width="100px"
                 // data={}
-                color={theme}
+                color={themeButton}
               />
-              <Button color={theme} text="Add" width="150px" />
+              <Button color={themeButton} text="Add" width="150px" />
             </div>
           </div>
-          <div>
-            <Stacked width="320px" height="360px" />
+          <div
+            className={
+              theme === "light"
+                ? "ecommerce-stats-item"
+                : "ecommerce-stats-item-dark"
+            }
+          >
+            <Stacked width="330px" height="360px" />
           </div>
         </div>
         <div className="revenue-graph-section">
-          <div>revenue Graph</div>
+          <div></div>
         </div>
       </div>
 
@@ -149,7 +204,13 @@ const ECommerce = () => {
         <div>Earning Yearly : {<GetTotalEarning />} followed by graph</div>
       </div> */}
 
-      <div className="recent-transaction-section">
+      <div
+        className={
+          theme === "light"
+            ? "recent-transaction-section"
+            : "recent-transaction-section-dark"
+        }
+      >
         <span className="bold-600-text">Recent Transaction</span>
         {data.recentTransactions.map((item) => {
           const Icon = iconMapping[item.icon];

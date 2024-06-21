@@ -14,8 +14,6 @@ import {
   DragAndDrop,
 } from "@syncfusion/ej2-react-schedule";
 import "./Calendar.css";
-
-import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { scheduleData } from "../../../Assests/data/dummy.js";
 import Header from "../../../Components/Header/Header.jsx";
 

@@ -19,13 +19,21 @@ import Bar from './routes/Charts/Bar/Bar';
 import { useContext } from 'react';
 import { SideBarContext } from './Context/contextProvider';
 import ECommerce from './routes/dashboard/E-commerce/ECommerce';
+import { useTheme } from "./Context/themeContext.jsx";
+
 
 function App() {
+const { theme } = useTheme();
 
+  const darkThemeBackground = "#20232A";
+  const darkThemeColor = "#E5FAFB";
   const { isSideBarOpen } = useContext(SideBarContext);
 
   return (
-    <div className="page-container">
+    <div className="page-container"style={{
+        backgroundColor: theme === "light" ? "" : darkThemeBackground,
+        color: theme === "light" ? "" : darkThemeColor,
+      }}>
       <Sidebar/>
       <div className={isSideBarOpen?'main-page-container-partial':'main-page-container-full'}>
           <Navbar/>

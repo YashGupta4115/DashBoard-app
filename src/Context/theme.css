@@ -1,0 +1,17 @@
+/* styles.css */
+:root {
+    --primary-color-light: #ffffff;
+    --secondary-color-light: #f0f0f0;
+    --primary-color-dark: #333333;
+    --secondary-color-dark: #444444;
+}
+
+.light-theme {
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+}
+
+.dark-theme {
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+}

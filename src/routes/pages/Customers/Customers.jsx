@@ -15,13 +15,13 @@ import {
 
 import { customersData, customersGrid } from "../../../Assests/data/dummy";
 import Header from "../../../Components/Header/Header";
-// Ensure this is the path to your CSS file
 
 const Customers = () => {
   return (
     <div className="customers-container">
       <Header Category="Page" title="Customers" />
       <GridComponent
+        className="gridComponent"
         id="gridComp"
         dataSource={customersData}
         allowPaging

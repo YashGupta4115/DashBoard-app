@@ -13,7 +13,6 @@ import {
 
 import { employeesData, employeesGrid } from "../../../Assests/data/dummy";
 import Header from "../../../Components/Header/Header";
-// Ensure this is the path to your CSS file
 
 const Employees = () => {
   return (

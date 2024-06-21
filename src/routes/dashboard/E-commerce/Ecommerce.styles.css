@@ -62,9 +62,30 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-top : 1rem;
+    padding-bottom: 1rem;
+    border-radius : 15px;
+    background-color: white;
+}
+.ecommerce-stats-item-dark{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 15px;
+    background-color: #33373E;
 }
 
 .revenue-section{
@@ -75,6 +96,18 @@
     width: 85%;
     margin-top : 2rem;
     margin-bottom: 2rem;
+}
+.revenue-section-dark {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #33373E;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .revenue-stat-section{
@@ -126,6 +159,13 @@
 .recent-transaction-section {
     margin-top : 2rem;
     margin-bottom: 2rem;
+}
+.recent-transaction-section-dark{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #33373E;
+    padding: 25px;
+    border-radius: 15px;
 }
 .recent-transaction-items{
     display: flex;

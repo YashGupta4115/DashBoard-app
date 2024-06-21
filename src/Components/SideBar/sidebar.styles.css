@@ -1,3 +1,8 @@
+.pageSelected{
+    background-color: rgb(59, 122, 239);
+    color: white;
+}
+
 .sideBar-container {
     box-shadow: 1px 1px 8px 1px #888888;
     height: 100%;
@@ -10,6 +15,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: white;
+    z-index : 2;
 }
 
 .nameAndIcon {
@@ -60,7 +66,6 @@
     margin-top: 0.3rem;
     margin-bottom: 0.3rem;
     text-decoration: none;
-    color: black;
     height: 2.2rem;
     display: flex;
     align-items: center;
@@ -73,4 +78,8 @@
 .sidebar-child-link:hover {
     background-color: rgb(59, 122, 239);
     color: white;
+}
+
+a:visited {
+    color: inherit;
 }

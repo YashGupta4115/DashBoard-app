@@ -4,8 +4,12 @@ const Header = ({ Category, title }) => {
   return (
     <div>
       <div className="header-container">
-        <p className="gray-text">{Category}</p>
-        <p className="bold-600-text">{title}</p>
+        <p className="gray-text" style={{ marginLeft: "5rem" }}>
+          {Category}
+        </p>
+        <p className="bold-600-text" style={{ marginLeft: "5rem" }}>
+          {title}
+        </p>
       </div>
     </div>
   );

@@ -4,8 +4,6 @@ import {
   MapsComponent,
   LayersDirective,
   LayerDirective,
-  ToolTip,
-  Inject,
 } from "@syncfusion/ej2-react-maps";
 
 import "./Color.css";
@@ -66,10 +64,7 @@ const Color = () => {
   return (
     <div className="colorMap-container">
       <Header Category="Chart" title="Color Map" />
-      <MapsComponent
-        title="Population Density of Asian Countries"
-        tooltip={{ enable: true }}
-      >
+      <MapsComponent title="Population Density of Asian Countries">
         <LayersDirective>
           <LayerDirective
             shapeData={world_map}
@@ -109,7 +104,6 @@ const Color = () => {
             }}
           ></LayerDirective>
         </LayersDirective>
-        <Inject services={[ToolTip]} />
       </MapsComponent>
     </div>
   );

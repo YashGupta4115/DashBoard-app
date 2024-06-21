@@ -12,6 +12,10 @@ import UserProfile from "../UserProfile/UserProfile.jsx";
 import Cart from "../Cart/Cart.jsx";
 import Notifications from "../Notifications/Notifications.jsx";
 import { Link } from "react-router-dom";
+import { CiLight, CiDark } from "react-icons/ci";
+import "../../Context/theme.css";
+
+import { useTheme } from "../../Context/themeContext.jsx";
 
 const Navbar = () => {
   const {
@@ -43,8 +47,15 @@ const Navbar = () => {
     }
   }, [screenSize, setIsSideBarOpen]); // to handle sidebar toggle when screen is wide enough
 
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div className="navbar-container">
+    <div
+      className="navbar-container"
+      style={{
+        backgroundColor: theme === "light" ? "white" : "#20232A",
+      }}
+    >
       <div className="left-navbar-container">
         {!isSideBarOpen && (
           <>
@@ -57,6 +68,13 @@ const Navbar = () => {
         <IoSearch className="navBar-icons" />
       </div>
       <div className="right-navbar-container">
+        <div className="navBar-icons-container" onClick={toggleTheme}>
+          {theme === "light" ? (
+            <CiLight className="navBar-icons" />
+          ) : (
+            <CiDark className="navBar-icons" />
+          )}
+        </div>
         <div className="navBar-icons-container">
           <LuShoppingCart
             className="navBar-icons"

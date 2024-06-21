@@ -13,10 +13,11 @@ const Colorpicker = () => {
   // function closePopup() {
   //   ddb.toggle();
   // }
+
   return (
     <div className="colorPicker-container">
       <Header Category="App" title="Color Picker" />
-      <h4>Choose Color</h4>
+      <h4 style={{ marginLeft: "3rem" }}>Choose Color</h4>
       <div className="wrap">
         <ColorPickerComponent
           id="colorpicker"
