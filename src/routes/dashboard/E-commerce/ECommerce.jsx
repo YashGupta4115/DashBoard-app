@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Ecommerce.styles.css";
 import { HiOutlineCurrencyRupee } from "react-icons/hi2";
 import { IoPeopleOutline } from "react-icons/io5";
@@ -7,6 +7,7 @@ import { FaRegChartBar } from "react-icons/fa";
 import { TbCreditCardRefund } from "react-icons/tb";
 import { CiWallet } from "react-icons/ci";
 import { MdPayments } from "react-icons/md";
+import { GoDotFill } from "react-icons/go";
 import data from "../../../Assests/data.json";
 
 import {
@@ -20,6 +21,9 @@ import {
   GetTotalSales,
   GetRecentTransaction,
 } from "../../../Assests/data.component";
+import SparkLine from "../../../Components/SparkLine/SparkLine";
+import Stacked from "../../../Components/Stacked/Stacked";
+import Button from "../../../Components/Button/Button";
 
 const ECommerce = () => {
   const iconMapping = {
@@ -28,15 +32,24 @@ const ECommerce = () => {
     MdPayments: MdPayments,
   };
 
+  const [theme, setTheme] = useState("#7352FF");
+
   // console.log(data);
   return (
     <div className="e-commerce-page-container">
       <div className="earning-and-greeting-Section">
         <div className="earning-section">
           <span>
-            Earnings <HiOutlineCurrencyRupee />{" "}
+            Earnings{" "}
+            <HiOutlineCurrencyRupee
+              style={{
+                color: theme,
+                borderRadius: "20px",
+              }}
+            />{" "}
           </span>
           Rs.{<GetTotalEarning />}
+          <Button color={theme} text="Download" />
         </div>
         <div className="greeting-section"></div>
       </div>
@@ -81,8 +94,12 @@ const ECommerce = () => {
         <div className="revenue-section-headers">
           <span className="bold-600-text">Revenue Updates</span>
           <span className="revenueUpdates-graph-legend">
-            <span style={{ marginRight: "0.5rem" }}>. Expense</span>
-            <span>. Budget</span>
+            <span style={{ marginRight: "0.5rem", color: "#404041" }}>
+              <GoDotFill style={{ fontSize: "15px" }} /> Expense
+            </span>
+            <span style={{ color: "#00BDAE" }}>
+              <GoDotFill style={{ fontSize: "15px" }} /> Budget
+            </span>
           </span>
         </div>
 
@@ -102,18 +119,35 @@ const ECommerce = () => {
               </span>
               <span className="gray-text revenue-figure-text">Expense</span>
             </div>
+            <div>
+              <SparkLine
+                currentColor="blue"
+                id="line-sparkline"
+                type="Line"
+                height="80px"
+                width="250px"
+                // data={}
+                color={theme}
+              />
+              <Button color={theme} text="Add" width="150px" />
+            </div>
           </div>
-          <div>Graph</div>
+          <div>
+            <Stacked width="320px" height="360px" />
+          </div>
         </div>
         <div className="revenue-graph-section">
           <div>revenue Graph</div>
         </div>
       </div>
 
-      <div className="more-revenue-graph-section">
-        <div>Earning Montly : {<GetMonthlyEarning />} followed by graph</div>
+      {/* <div className="more-revenue-graph-section">
+        <div>
+          Earning Montly : {<GetMonthlyEarning />}
+          {/* <Barchart />}
+        </div>
         <div>Earning Yearly : {<GetTotalEarning />} followed by graph</div>
-      </div>
+      </div> */}
 
       <div className="recent-transaction-section">
         <span className="bold-600-text">Recent Transaction</span>
@@ -143,14 +177,14 @@ const ECommerce = () => {
         })}
       </div>
 
-      <div className="sales-overview-section">sales overview</div>
+      {/* <div className="sales-overview-section">sales overview</div>
 
       <div className="extra-information">
         <div className="weekly-information-section">weekly information</div>
         <div className="brand-section">brands</div>
       </div>
 
-      <div className="developer-details-section">developer</div>
+      <div className="developer-details-section">developer</div> */}
     </div>
   );
 };

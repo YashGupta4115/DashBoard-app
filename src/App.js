@@ -28,10 +28,9 @@ function App() {
     <div className="page-container">
       <Sidebar/>
       <div className={isSideBarOpen?'main-page-container-partial':'main-page-container-full'}>
-        <Navbar/>
+          <Navbar/>
         <Routes>
           <Route index element={<ECommerce/>}/>
-
           <Route path='/apps'>
             <Route path='/apps/calendar' element={<Calendar/>}/>
             <Route path='/apps/editor' element={<Editor/>}/>

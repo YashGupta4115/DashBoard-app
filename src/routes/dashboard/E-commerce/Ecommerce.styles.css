@@ -5,7 +5,8 @@
     align-items: center;
     justify-content: center;
     width: 90%;
-    margin-top : 1rem;
+    margin-top : 5rem;
+
 }
 
 .earning-and-greeting-Section{
@@ -73,6 +74,7 @@
     justify-content: center;
     width: 85%;
     margin-top : 2rem;
+    margin-bottom: 2rem;
 }
 
 .revenue-stat-section{
@@ -80,7 +82,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
 }
 
 .revenue-stat-left{
@@ -124,6 +125,7 @@
 
 .recent-transaction-section {
     margin-top : 2rem;
+    margin-bottom: 2rem;
 }
 .recent-transaction-items{
     display: flex;
@@ -138,7 +140,7 @@
 }
 
 
-.extra-information{
+/* .extra-information{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,5 +148,5 @@
 }
 
 .test{
-    background-color: rgb(237, 124, 239);
-}
+    background-color: #ed7cef;
+} */

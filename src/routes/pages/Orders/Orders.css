@@ -1,0 +1,12 @@
+.grid-image {
+    max-width: 100px;
+    max-height: 50px;
+    object-fit: cover;
+}
+
+.orders-container{
+    display: flex;
+    flex-direction: column;
+    width : 90%;
+    margin-top: 5rem;
+}

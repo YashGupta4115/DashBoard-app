@@ -1,0 +1,56 @@
+import React from "react";
+import {
+  ChartComponent,
+  SeriesCollectionDirective,
+  SeriesDirective,
+  Inject,
+  Legend,
+  Category,
+  BarSeries,
+  Tooltip,
+  DataLabel
+} from "@syncfusion/ej2-react-charts";
+
+const Barchart = () => {
+  const data = [
+    { x: "Jan", y: 35 },
+    { x: "Feb", y: 28 },
+    { x: "Mar", y: 34 },
+    { x: "Apr", y: 32 },
+    { x: "May", y: 40 },
+    { x: "Jun", y: 32 },
+    { x: "Jul", y: 35 },
+    { x: "Aug", y: 55 },
+    { x: "Sep", y: 38 },
+    { x: "Oct", y: 30 },
+    { x: "Nov", y: 25 },
+    { x: "Dec", y: 32 },
+  ];
+
+  const primaryXAxis = { valueType: "Category", title: "Months" };
+  const primaryYAxis = { title: "Values" };
+
+  return (
+    <ChartComponent
+      id="bar-chart"
+      primaryXAxis={primaryXAxis}
+      primaryYAxis={primaryYAxis}
+      title="Monthly Sales Data"
+      tooltip={{ enable: true }}
+    >
+      <Inject services={[BarSeries, Legend, Tooltip, Category, DataLabel]} />
+      <SeriesCollectionDirective>
+        <SeriesDirective
+          dataSource={data}
+          xName="x"
+          yName="y"
+          name="Sales"
+          type="Bar"
+          marker={{ dataLabel: { visible: true } }}
+        />
+      </SeriesCollectionDirective>
+    </ChartComponent>
+  );
+};
+
+export default Barchart;
