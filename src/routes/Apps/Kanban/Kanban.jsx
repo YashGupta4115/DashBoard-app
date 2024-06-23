@@ -11,11 +11,11 @@ import Header from "../../../Components/Header/Header";
 import { useTheme } from "../../../Context/themeContext";
 
 const Kanban = () => {
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Page" title="KanBan" />
@@ -24,6 +24,7 @@ const Kanban = () => {
         dataSource={kanbanData}
         cardSettings={{ contextField: "Summary", headerField: "Id" }}
         keyField="Status"
+        height="30rem"
       >
         <ColumnsDirective>
           {kanbanGrid.map((item, index) => (

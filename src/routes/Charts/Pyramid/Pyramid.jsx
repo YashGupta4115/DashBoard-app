@@ -21,16 +21,16 @@ const Pyramid = () => {
     { x: "Toys", y: 40, text: "Toys: 40" },
   ];
 
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
 
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Chart" title="Pyramid" />
-      <AccumulationChartComponent id="pyramid-chart">
+      <AccumulationChartComponent id="pyramid-chart" height="480px">
         <Inject
           services={[PyramidSeries, Tooltip, Legend, AccumulationDataLabel]}
         />

@@ -44,18 +44,18 @@ const Line = () => {
     { month: "Dec", sales: 72 },
   ];
   const primaryxAxis = { valueType: "Category" };
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Chart" title="Line Chart" />
       <ChartComponent
         id="charts"
         primaryXAxis={primaryxAxis}
-        height="400px"
+        height="470px"
         tooltip={{ enable: true }}
         legendSettings={{
           visible: true,

@@ -21,16 +21,16 @@ const Pie = () => {
     { x: "Japan", y: 40, text: "JPN", fill: "#9CD9FF" },
     { x: "United Kingdom", y: 20, text: "UK", fill: "#0450C2" },
   ];
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
 
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Chart" title="Pie" />
-      <AccumulationChartComponent id="charts">
+      <AccumulationChartComponent id="charts" height="470px">
         <Inject
           services={[PieSeries, Tooltip, Legend, AccumulationDataLabel]}
         />

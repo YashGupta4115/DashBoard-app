@@ -6,6 +6,44 @@ import { SideBarContext } from "../../Context/contextProvider";
 import { useTheme } from "../../Context/themeContext";
 
 const Sidebar = () => {
+  const sidebarItem = {
+    DASHBOARD: [{ id: 1, name: "eCommerce", title: "Ecommerce", route: "/" }],
+    PAGES: [
+      { id: 1, name: "orders", title: "Orders", route: "/pages/orders" },
+      {
+        id: 2,
+        name: "customers",
+        title: "Customers",
+        route: "/pages/customers",
+      },
+      {
+        id: 3,
+        name: "employees",
+        title: "Employees",
+        route: "/pages/employees",
+      },
+    ],
+    APPS: [
+      { id: 1, name: "Calendar", title: "Calendar", route: "/apps/calendar" },
+      {
+        id: 2,
+        name: "ColorPicker",
+        title: "ColorPicker",
+        route: "/apps/colorPicker",
+      },
+      { id: 3, name: "Kanban", title: "Kanban", route: "/apps/kanban" },
+      { id: 4, name: "Editor", title: "Editor", route: "/apps/editor" },
+    ],
+    CHARTS: [
+      { id: 1, name: "Area", title: "Area", route: "/charts/area" },
+      { id: 2, name: "Line", title: "Line", route: "/charts/line" },
+      { id: 3, name: "Pie", title: "Pie", route: "/charts/pie" },
+      { id: 4, name: "Color", title: "Color", route: "/charts/color" },
+      { id: 5, name: "Finance", title: "Finance", route: "/charts/finance" },
+      { id: 6, name: "Pyramid", title: "Pyramid", route: "/charts/pyramid" },
+    ],
+  };
+
   const { isSideBarOpen, setIsSideBarOpen, toggleSideBar, screenSize } =
     useContext(SideBarContext);
 
@@ -26,7 +64,6 @@ const Sidebar = () => {
     Editor: false,
     finance: false,
   };
-
   const [pageSelected, setPageSelected] = useState(defaultPage);
 
   const handleSideBar = (page) => {
@@ -38,7 +75,8 @@ const Sidebar = () => {
       [page]: true,
     });
   };
-  const { theme } = useTheme();
+  console.log(pageSelected);
+  const { displayMode, theme } = useTheme();
 
   const darkThemeBackground = "#33373E";
   const darkThemeColor = "#f0f0f0";
@@ -48,8 +86,8 @@ const Sidebar = () => {
       <div
         className="sideBar-container "
         style={{
-          backgroundColor: theme === "light" ? "" : darkThemeBackground,
-          color: theme === "light" ? "" : darkThemeColor,
+          backgroundColor: displayMode === "light" ? "" : darkThemeBackground,
+          color: displayMode === "light" ? "" : darkThemeColor,
         }}
       >
         <div className="nameAndIcon">
@@ -59,157 +97,38 @@ const Sidebar = () => {
             onClick={toggleSideBar}
           />
         </div>
-        <div className="dashBoard-continer sidebar-child">
-          <span className="sidebar-child-title">DASHBOARD</span>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["eCommerce"] ? "pageSelected" : ""
-            }`}
-            to="/"
-            onClick={() => {
-              handleSideBar("eCommerce");
-            }}
-          >
-            E-commerce
-          </Link>
-        </div>
-        <div className="pages-container  sidebar-child">
-          <span className="sidebar-child-title">PAGES</span>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["orders"] ? "pageSelected" : ""
-            }`}
-            to="/pages/orders"
-            onClick={() => handleSideBar("orders")}
-          >
-            Orders
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["customers"] ? "pageSelected" : ""
-            }`}
-            to="/pages/customers"
-            onClick={() => handleSideBar("customers")}
-          >
-            Customers
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["employees"] ? "pageSelected" : ""
-            }`}
-            to="/pages/employees"
-            onClick={() => handleSideBar("employees")}
-          >
-            Employees
-          </Link>
-        </div>
 
-        <div className="apps-container  sidebar-child">
-          <span className="sidebar-child-title">APPS</span>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Calendar"] ? "pageSelected" : ""
-            }`}
-            to="/apps/calendar"
-            onClick={() => handleSideBar("Calendar")}
-          >
-            Calendar
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["ColorPicker"] ? "pageSelected" : ""
-            }`}
-            to="/apps/colorPicker"
-            onClick={() => handleSideBar("ColorPicker")}
-          >
-            ColorPicker
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Kanban"] ? "pageSelected" : ""
-            }`}
-            to="/apps/kanban"
-            onClick={() => handleSideBar("Kanban")}
-          >
-            Kanban
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Editor"] ? "pageSelected" : ""
-            }`}
-            to="/apps/editor"
-            onClick={() => handleSideBar("Editor")}
-          >
-            Editor
-          </Link>
-        </div>
-
-        <div className="charts-container sidebar-child ">
-          <span className="sidebar-child-title">CHARTS</span>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Area"] ? "pageSelected" : ""
-            }`}
-            to="/charts/Area"
-            onClick={() => handleSideBar("Area")}
-          >
-            Area
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Line"] ? "pageSelected" : ""
-            }`}
-            to="/charts/line"
-            onClick={() => handleSideBar("Line")}
-          >
-            Line
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Color"] ? "pageSelected" : ""
-            }`}
-            to="/charts/color"
-            onClick={() => handleSideBar("Color")}
-          >
-            Color
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Pie"] ? "pageSelected" : ""
-            }`}
-            to="/charts/pie"
-            onClick={() => handleSideBar("Pie")}
-          >
-            Pie
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Fianance"] ? "pageSelected" : ""
-            }`}
-            to="/charts/finance"
-            onClick={() => handleSideBar("Finance")}
-          >
-            Finance
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Pyramid"] ? "pageSelected" : ""
-            }`}
-            to="/charts/pyramid"
-            onClick={() => handleSideBar("Pyramid")}
-          >
-            Pyramid
-          </Link>
-          <Link
-            className={`sidebar-child-link ${
-              pageSelected["Bar"] ? "pageSelected" : ""
-            }`}
-            to="/charts/bar"
-            onClick={() => handleSideBar("Bar")}
-          >
-            Bar
-          </Link>
-        </div>
+        {Object.keys(sidebarItem).map((key) => {
+          return (
+            <div key={key} className="item-container sidebar-child">
+              <span className="sidebar-child-title">{key}</span>
+              {sidebarItem[key].map((child) => {
+                return (
+                  <Link
+                    key={child.id}
+                    className={`sidebar-child-link ${
+                      pageSelected[child.name] ? "pageSelected" : ""
+                    }`}
+                    to={child.route}
+                    onClick={() => {
+                      console.log(child.name);
+                      handleSideBar(child.name);
+                    }}
+                    style={{
+                      color:
+                        displayMode === "light" && !pageSelected[child.name]
+                          ? "black"
+                          : "white",
+                      backgroundColor: pageSelected[child.name] ? theme : "",
+                    }}
+                  >
+                    {child.title}
+                  </Link>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     )
   );

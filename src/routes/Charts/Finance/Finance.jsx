@@ -39,11 +39,11 @@ const Finance = () => {
     title: "Rainfall",
   };
   const style = { textAlign: "center" };
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Chart" title="Area" />
@@ -56,6 +56,7 @@ const Finance = () => {
           visible: true,
           position: "Top",
         }}
+        height="480px"
         tooltip={{ enable: true }}
         title="Maximum and Minimum Rainfall"
       >

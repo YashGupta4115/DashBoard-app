@@ -21,12 +21,12 @@ import "./Orders.css"; // Ensure this is the path to your CSS file
 import { useTheme } from "../../../Context/themeContext";
 
 const Orders = () => {
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
 
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Page" title="Orders" />

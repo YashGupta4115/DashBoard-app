@@ -43,11 +43,11 @@ const Area = () => {
     interval: 0.5,
     title: "Sales Amount in Millions",
   };
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Chart" title="Area" />
@@ -57,6 +57,7 @@ const Area = () => {
         primaryYAxis={primaryyAxis}
         title="Average Sales Comparison"
         tooltip={{ enable: true }}
+        height="470px"
       >
         <Inject services={[AreaSeries, Legend, Tooltip, DataLabel, Category]} />
         <SeriesCollectionDirective>

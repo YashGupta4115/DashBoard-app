@@ -32,11 +32,11 @@ const Bar = () => {
     interval: 20,
     title: "Medals",
   };
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Chart" title="Bar Chart" />

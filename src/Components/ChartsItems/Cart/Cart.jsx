@@ -38,7 +38,7 @@ const Cart = () => {
           </div>
         );
       })}
-      <Button color="#7352FF" text="CheckOut" width="100%" />
+      <Button text="CheckOut" width="100%" />
     </div>
   );
 };

@@ -55,3 +55,15 @@ body{
   align-items: center;
   /* width: 100%; */
 }
+.themeSettingButton{
+  z-index: 2;
+  position: fixed;
+  right: 5rem;
+  bottom : 5rem;
+  font-size: 3rem;
+  padding: 8px;
+  border-radius: 10px;
+  border : solid 0;
+  cursor: pointer;
+  color: white;
+}

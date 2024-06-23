@@ -35,7 +35,7 @@ const ECommerce = () => {
 
   const [themeButton] = useState("#7352FF");
 
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
 
   // console.log(data);
   return (
@@ -52,7 +52,7 @@ const ECommerce = () => {
             />{" "}
           </span>
           Rs.{<GetTotalEarning />}
-          <Button color={themeButton} text="Download" />
+          <Button text="Download" />
         </div>
         <div className="greeting-section"></div>
       </div>
@@ -60,7 +60,7 @@ const ECommerce = () => {
       <div className="stats-section">
         <div
           className={
-            theme === "light"
+            displayMode === "light"
               ? "ecommerce-stats-item"
               : "ecommerce-stats-item-dark"
           }
@@ -74,7 +74,7 @@ const ECommerce = () => {
         </div>
         <div
           className={
-            theme === "light"
+            displayMode === "light"
               ? "ecommerce-stats-item"
               : "ecommerce-stats-item-dark"
           }
@@ -89,7 +89,7 @@ const ECommerce = () => {
 
         <div
           className={
-            theme === "light"
+            displayMode === "light"
               ? "ecommerce-stats-item"
               : "ecommerce-stats-item-dark"
           }
@@ -103,7 +103,7 @@ const ECommerce = () => {
         </div>
         <div
           className={
-            theme === "light"
+            displayMode === "light"
               ? "ecommerce-stats-item"
               : "ecommerce-stats-item-dark"
           }
@@ -119,7 +119,7 @@ const ECommerce = () => {
 
       <div
         className={
-          theme === "light" ? "revenue-section" : "revenue-section-dark"
+          displayMode === "light" ? "revenue-section" : "revenue-section-dark"
         }
       >
         <div className="revenue-section-headers">
@@ -138,7 +138,7 @@ const ECommerce = () => {
           <div className="revenue-stat-left">
             <div
               className={
-                theme === "light"
+                displayMode === "light"
                   ? "ecommerce-stats-item"
                   : "ecommerce-stats-item-dark"
               }
@@ -151,7 +151,7 @@ const ECommerce = () => {
             </div>
             <div
               className={
-                theme === "light"
+                displayMode === "light"
                   ? "ecommerce-stats-item"
                   : "ecommerce-stats-item-dark"
               }
@@ -164,7 +164,7 @@ const ECommerce = () => {
             </div>
             <div
               className={
-                theme === "light"
+                displayMode === "light"
                   ? "ecommerce-stats-item"
                   : "ecommerce-stats-item-dark"
               }
@@ -178,12 +178,12 @@ const ECommerce = () => {
                 // data={}
                 color={themeButton}
               />
-              <Button color={themeButton} text="Add" width="150px" />
+              <Button text="Add" width="150px" />
             </div>
           </div>
           <div
             className={
-              theme === "light"
+              displayMode === "light"
                 ? "ecommerce-stats-item"
                 : "ecommerce-stats-item-dark"
             }
@@ -206,7 +206,7 @@ const ECommerce = () => {
 
       <div
         className={
-          theme === "light"
+          displayMode === "light"
             ? "recent-transaction-section"
             : "recent-transaction-section-dark"
         }

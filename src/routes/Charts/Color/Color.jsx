@@ -61,15 +61,18 @@ const Color = () => {
     { name: "Maldives", density: 1719 },
     { name: "Brunei", density: 83 },
   ];
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Chart" title="Color Map" />
-      <MapsComponent title="Population Density of Asian Countries">
+      <MapsComponent
+        title="Population Density of Asian Countries"
+        height="480px"
+      >
         <LayersDirective>
           <LayerDirective
             shapeData={world_map}

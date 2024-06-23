@@ -1,0 +1,67 @@
+.background-theme{
+    background-color: black;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.themeSetting-container{
+    position: fixed;
+    right: 0;
+    top : 0;
+    background-color: white;
+    color: black;
+    height: 100%;
+    z-index: 10;
+    width : 25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.themeSetting-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin : 1rem;
+    margin-top: 2rem;
+    padding-bottom: 1.5rem;
+    box-shadow: 0px 1px 0px;
+}
+.themeSetting-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+
+}
+.themeBody1-title{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.themeSetting-body1{
+    margin : 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-bottom: 1.5rem;
+    box-shadow: 0px 1px 0px;
+
+}
+.themeSetting-body2{
+    margin : 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.themeBody2-title{
+    margin-top : 0rem;
+    margin-bottom: 2rem;
+}
+.themeColors{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 0;
+    cursor: pointer;
+}

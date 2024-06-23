@@ -72,12 +72,8 @@
 }
 
 .sidebar-child-link:hover {
-    background-color: rgb(59, 122, 239);
-    color: white;
-}
-
-a:visited {
-    color: inherit;
+    background-color: rgb(201, 215, 241);
+    color: black;
 }
 
 .pageSelected {

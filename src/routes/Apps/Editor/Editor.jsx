@@ -14,15 +14,15 @@ import {
 import { useTheme } from "../../../Context/themeContext";
 const Editor = () => {
   const iframeSetting: object = { enable: true };
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="Apps" title="Editor" />
-      <RichTextEditorComponent iframeSettings={iframeSetting}>
+      <RichTextEditorComponent iframeSettings={iframeSetting} height="30rem">
         Type Something
         <Inject services={[Toolbar, Image, Link, HtmlEditor, QuickToolbar]} />
       </RichTextEditorComponent>

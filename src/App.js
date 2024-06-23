@@ -16,14 +16,16 @@ import Color from './routes/Charts/Color/Color';
 import Finance from './routes/Charts/Finance/Finance';
 import Pyramid from './routes/Charts/Pyramid/Pyramid';
 import Bar from './routes/Charts/Bar/Bar';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { SideBarContext } from './Context/contextProvider';
 import ECommerce from './routes/dashboard/E-commerce/ECommerce';
 import { useTheme } from "./Context/themeContext.jsx";
+import ThemeSetting from './Components/themeSetting/ThemeSetting.jsx';
+import { CiSettings } from "react-icons/ci";
 
 
 function App() {
-const { theme } = useTheme();
+  const { displayMode, isSettingOpen, setIsSettingOpen,theme } = useTheme();
 
   const darkThemeBackground = "#20232A";
   const darkThemeColor = "#E5FAFB";
@@ -31,8 +33,8 @@ const { theme } = useTheme();
 
   return (
     <div className="page-container"style={{
-        backgroundColor: theme === "light" ? "" : darkThemeBackground,
-        color: theme === "light" ? "" : darkThemeColor,
+        backgroundColor: displayMode === "light" ? "" : darkThemeBackground,
+        color: displayMode === "light" ? "" : darkThemeColor,
       }}>
       <Sidebar/>
       <div className={ (isSideBarOpen && screenSize > 900)?'main-page-container-partial':'main-page-container-full'}>
@@ -63,6 +65,11 @@ const { theme } = useTheme();
           </Route>
         </Routes>
       </div>
+
+      {isSettingOpen?<ThemeSetting/>:(
+          <CiSettings className='themeSettingButton' style={{backgroundColor : theme}} onClick={()=>setIsSettingOpen(true)}/>
+      )}
+      
     </div>
   );
 }

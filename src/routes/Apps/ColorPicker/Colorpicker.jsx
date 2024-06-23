@@ -14,11 +14,11 @@ const Colorpicker = () => {
   // function closePopup() {
   //   ddb.toggle();
   // }
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="App" title="Color Picker" />

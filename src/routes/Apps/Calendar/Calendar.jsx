@@ -17,11 +17,11 @@ import Header from "../../../Components/Header/Header.jsx";
 import { useTheme } from "../../../Context/themeContext.jsx";
 
 const Calendar = () => {
-  const { theme } = useTheme();
+  const { displayMode } = useTheme();
   return (
     <div
       className={
-        theme === "light" ? "orders-container" : "orders-container-dark"
+        displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
       <Header Category="App" title="Calendar" />

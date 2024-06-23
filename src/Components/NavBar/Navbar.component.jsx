@@ -44,13 +44,14 @@ const Navbar = () => {
     }
   }, [screenSize, setIsSideBarOpen]); // to handle sidebar toggle when screen is wide enough
 
-  const { theme, toggleTheme } = useTheme();
+  const { displayMode, toggleDisplayMode, theme } = useTheme();
 
   return (
     <div
       className="navbar-container"
       style={{
-        backgroundColor: theme === "light" ? "white" : "#20232A",
+        backgroundColor: displayMode === "light" ? "white" : "#20232A",
+        color: theme,
       }}
     >
       <div className="left-navbar-container">
@@ -58,15 +59,17 @@ const Navbar = () => {
           <>
             <RxHamburgerMenu className="navBar-icons" onClick={toggleSideBar} />
             <Link style={{ color: "black", textDecoration: "none" }} to="/">
-              <span className="navBar-company-title">VougeVariety</span>
+              <span style={{ color: theme }} className="navBar-company-title">
+                VougeVariety
+              </span>
             </Link>
           </>
         )}
         <IoSearch className="navBar-icons" />
       </div>
 
-      <div className="navBar-icons-container" onClick={toggleTheme}>
-        {theme === "light" ? (
+      <div className="navBar-icons-container" onClick={toggleDisplayMode}>
+        {displayMode === "light" ? (
           <CiLight className="navBar-icons" />
         ) : (
           <CiDark className="navBar-icons" />
