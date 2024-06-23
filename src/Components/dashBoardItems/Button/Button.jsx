@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useTheme } from "../../../Context/themeContext";
 
 const Button = ({ text, width }) => {

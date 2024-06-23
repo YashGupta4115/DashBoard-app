@@ -8,7 +8,7 @@ import Colorpicker from './routes/Apps/ColorPicker/Colorpicker';
 import Kanban from './routes/Apps/Kanban/Kanban';
 import Orders from './routes/pages/Orders/Orders';
 import Customers from './routes/pages/Customers/Customers';
-import Employees from './routes/pages/Employees/Employees';
+import Employees from './routes/pages/Employees/Employees';s
 import Area from './routes/Charts/Area/Area';
 import Line from './routes/Charts/Line/Line';
 import Pie from './routes/Charts/Pie/Pie';
@@ -16,7 +16,7 @@ import Color from './routes/Charts/Color/Color';
 import Finance from './routes/Charts/Finance/Finance';
 import Pyramid from './routes/Charts/Pyramid/Pyramid';
 import Bar from './routes/Charts/Bar/Bar';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { SideBarContext } from './Context/contextProvider';
 import ECommerce from './routes/dashboard/E-commerce/ECommerce';
 import { useTheme } from "./Context/themeContext.jsx";
