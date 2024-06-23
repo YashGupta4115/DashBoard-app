@@ -1,7 +1,3 @@
-.pageSelected{
-    background-color: rgb(59, 122, 239);
-    color: white;
-}
 
 .sideBar-container {
     box-shadow: 1px 1px 8px 1px #888888;
@@ -82,4 +78,9 @@
 
 a:visited {
     color: inherit;
+}
+
+.pageSelected {
+    background-color: rgb(59, 122, 239);
+    color: rgb(255, 255, 255);
 }
