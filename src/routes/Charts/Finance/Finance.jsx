@@ -15,6 +15,7 @@ import {
 import Header from "../../../Components/Header/Header";
 
 import "./Finance.css";
+import { useTheme } from "../../../Context/themeContext";
 
 const Finance = () => {
   const chartData = [
@@ -38,8 +39,13 @@ const Finance = () => {
     title: "Rainfall",
   };
   const style = { textAlign: "center" };
+  const { theme } = useTheme();
   return (
-    <div className="financeChart-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Chart" title="Area" />
       <ChartComponent
         id="charts"

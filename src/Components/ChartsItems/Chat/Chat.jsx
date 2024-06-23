@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./Chat.css";
 const Chat = () => {
   return (
-    <div>
+    <div className="chat-container">
       <h1>Chat</h1>
     </div>
   );

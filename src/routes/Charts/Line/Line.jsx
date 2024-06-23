@@ -11,6 +11,7 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import "./Line.css";
 import Header from "../../../Components/Header/Header";
+import { useTheme } from "../../../Context/themeContext";
 
 const Line = () => {
   const data = [
@@ -43,8 +44,13 @@ const Line = () => {
     { month: "Dec", sales: 72 },
   ];
   const primaryxAxis = { valueType: "Category" };
+  const { theme } = useTheme();
   return (
-    <div className="lineChart-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Chart" title="Line Chart" />
       <ChartComponent
         id="charts"

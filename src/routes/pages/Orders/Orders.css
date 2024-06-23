@@ -7,6 +7,21 @@
 .orders-container{
     display: flex;
     flex-direction: column;
-    width : 100%;
-    padding-top: 5rem;
+    width: 80%;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    background-color: #dbd8d8;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.orders-container-dark{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    background-color: #33373E;
+    padding: 30px;
+    border-radius : 15px;
 }

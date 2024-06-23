@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 import Header from "../../../Components/Header/Header";
 import "./Bar.css";
 import {
@@ -14,6 +13,7 @@ import {
   DataLabel,
   LineSeries,
 } from "@syncfusion/ej2-react-charts";
+import { useTheme } from "../../../Context/themeContext";
 const Bar = () => {
   const data = [
     { country: "USA", gold: 50, silver: 70, bronze: 45 },
@@ -32,8 +32,13 @@ const Bar = () => {
     interval: 20,
     title: "Medals",
   };
+  const { theme } = useTheme();
   return (
-    <div className="barChart-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Chart" title="Bar Chart" />
       <ChartComponent
         id="charts"

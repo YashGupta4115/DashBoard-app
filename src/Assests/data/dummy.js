@@ -21,7 +21,6 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -61,16 +60,16 @@ export const kanbanGrid = [
     keyField: 'Close',
     allowToggle: true },
 ];
-const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2">
-    <img
-      className="rounded-full w-10 h-10"
-      src={props.EmployeeImage}
-      alt="employee"
-    />
-    <p>{props.Name}</p>
-  </div>
-);
+// const gridEmployeeProfile = (props) => (
+//   <div className="flex items-center gap-2">
+//     <img
+//       className="rounded-full w-10 h-10"
+//       src={props.EmployeeImage}
+//       alt="employee"
+//     />
+//     <p>{props.Name}</p>
+//   </div>
+// );
 
 const gridEmployeeCountry = (props) => (
   <div className="flex items-center justify-center gap-2">
@@ -120,19 +119,19 @@ export const EditorData = () => (
     </h3>
   </div>
 );
-const customerGridImage = (props) => (
-  <div className="image flex gap-4">
-    <img
-      className="rounded-full w-10 h-10"
-      src={props.CustomerImage}
-      alt="employee"
-    />
-    <div>
-      <p>{props.CustomerName}</p>
-      <p>{props.CustomerEmail}</p>
-    </div>
-  </div>
-);
+// const customerGridImage = (props) => (
+//   <div className="image flex gap-4">
+//     <img
+//       className="rounded-full w-10 h-10"
+//       src={props.CustomerImage}
+//       alt="employee"
+//     />
+//     <div>
+//       <p>{props.CustomerName}</p>
+//       <p>{props.CustomerEmail}</p>
+//     </div>
+//   </div>
+// );
 
 const customerGridStatus = (props) => (
   <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">

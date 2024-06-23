@@ -10,6 +10,7 @@ import {
   AccumulationDataLabel,
 } from "@syncfusion/ej2-react-charts";
 import Header from "../../../Components/Header/Header";
+import { useTheme } from "../../../Context/themeContext";
 
 const Pyramid = () => {
   const data = [
@@ -20,8 +21,14 @@ const Pyramid = () => {
     { x: "Toys", y: 40, text: "Toys: 40" },
   ];
 
+  const { theme } = useTheme();
+
   return (
-    <div className="areaChart-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Chart" title="Pyramid" />
       <AccumulationChartComponent id="pyramid-chart">
         <Inject

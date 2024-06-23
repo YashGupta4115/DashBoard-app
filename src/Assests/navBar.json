@@ -1,0 +1,97 @@
+{
+  "navBar": [
+    {
+      "id": 3,
+      "name": "Cart",
+      "icon": "AiOutlineShoppingCart",
+      "navNumber" : "4",
+      "afterClick": "cart"
+    },
+    {
+      "id": 4,
+      "name": "Messages",
+      "icon": "AiOutlineMessage",
+      "navNumber": 2,
+      "afterClick": "chat"
+    },
+    {
+      "id": 5,
+      "name": "Notifications",
+      "icon": "AiOutlineBell",
+      "navNumber": 5,
+      "afterClick": "notification"
+    }
+  ],
+  "cartItems": [
+    {
+      "id": 101,
+      "name": "Wireless Headphones",
+      "quantity": 2,
+      "price": 59.99,
+      "image": "headphones.jpg"
+    },
+    {
+      "id": 102,
+      "name": "Bluetooth Speaker",
+      "quantity": 1,
+      "price": 89.99,
+      "image": "speaker.jpg"
+    },
+    {
+      "id": 103,
+      "name": "Smart Watch",
+      "quantity": 1,
+      "price": 199.99,
+      "image": "watch.jpg"
+    }
+  ],
+  "messages": [
+    {
+      "id": 201,
+      "from": "Customer Support",
+      "subject": "Order Confirmation",
+      "body": "Your order #12345 has been confirmed and will be shipped soon.",
+      "receivedAt": "2024-06-20T15:30:00Z"
+    },
+    {
+      "id": 202,
+      "from": "Sales Team",
+      "subject": "Special Discount Just for You!",
+      "body": "Get 20% off on your next purchase with code SAVE20.",
+      "receivedAt": "2024-06-21T10:00:00Z"
+    },
+    {
+      "id": 203,
+      "from": "Tech Support",
+      "subject": "Account Password Reset",
+      "body": "Your password has been successfully reset.",
+      "receivedAt": "2024-06-22T12:45:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 301,
+      "type": "Order Update",
+      "message": "Your order #12345 has been shipped.",
+      "time": "2024-06-23T09:00:00Z"
+    },
+    {
+      "id": 302,
+      "type": "Promotion",
+      "message": "Summer Sale: Up to 50% off on select items!",
+      "time": "2024-06-23T08:00:00Z"
+    },
+    {
+      "id": 303,
+      "type": "Review Reminder",
+      "message": "Please leave a review for your recent purchase of Wireless Headphones.",
+      "time": "2024-06-22T14:30:00Z"
+    },
+    {
+      "id": 304,
+      "type": "Account Alert",
+      "message": "Your account password was changed successfully.",
+      "time": "2024-06-22T11:00:00Z"
+    }
+  ]
+}

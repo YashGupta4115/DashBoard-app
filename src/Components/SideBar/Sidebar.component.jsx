@@ -3,7 +3,7 @@ import "./sidebar.styles.css";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useContext, useState } from "react";
 import { SideBarContext } from "../../Context/contextProvider";
-import { ThemeProvider, useTheme } from "../../Context/themeContext";
+import { useTheme } from "../../Context/themeContext";
 
 const Sidebar = () => {
   const { isSideBarOpen, setIsSideBarOpen, toggleSideBar, screenSize } =
@@ -38,7 +38,7 @@ const Sidebar = () => {
       [page]: true,
     });
   };
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   const darkThemeBackground = "#33373E";
   const darkThemeColor = "#f0f0f0";

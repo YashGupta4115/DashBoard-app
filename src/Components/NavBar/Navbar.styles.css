@@ -23,13 +23,14 @@
 }
 
 .navBar-icons {
-    margin-right: 2rem;
+    margin-left : 1rem;
+    margin-right: 1rem;
     cursor: pointer;
 }
 
 .navBar-icon-value{
-     position: relative;
-     left : -20px;
+    position: relative;
+    left : -15px;
     top : -20px;
-     font-size: 10px;
+    font-size: 10px;
 }

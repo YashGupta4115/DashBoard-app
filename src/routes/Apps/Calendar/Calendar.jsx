@@ -2,8 +2,6 @@ import React from "react";
 
 import {
   ScheduleComponent,
-  ViewDirective,
-  ViewsDirective,
   Day,
   Week,
   WorkWeek,
@@ -16,10 +14,16 @@ import {
 import "./Calendar.css";
 import { scheduleData } from "../../../Assests/data/dummy.js";
 import Header from "../../../Components/Header/Header.jsx";
+import { useTheme } from "../../../Context/themeContext.jsx";
 
 const Calendar = () => {
+  const { theme } = useTheme();
   return (
-    <div className="calendar-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="App" title="Calendar" />
       <ScheduleComponent
         height="650px"

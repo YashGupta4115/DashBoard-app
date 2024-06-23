@@ -13,10 +13,16 @@ import {
 
 import { employeesData, employeesGrid } from "../../../Assests/data/dummy";
 import Header from "../../../Components/Header/Header";
+import { useTheme } from "../../../Context/themeContext";
 
 const Employees = () => {
+  const { theme } = useTheme();
   return (
-    <div className="employees-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Page" title="Employees" />
       <GridComponent
         id="gridComp"

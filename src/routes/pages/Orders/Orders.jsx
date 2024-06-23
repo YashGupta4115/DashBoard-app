@@ -15,17 +15,20 @@ import {
   Inject,
 } from "@syncfusion/ej2-react-grids";
 
-import {
-  ordersData,
-  contextMenuItems,
-  ordersGrid,
-} from "../../../Assests/data/dummy";
+import { ordersData, ordersGrid } from "../../../Assests/data/dummy";
 import Header from "../../../Components/Header/Header";
 import "./Orders.css"; // Ensure this is the path to your CSS file
+import { useTheme } from "../../../Context/themeContext";
 
 const Orders = () => {
+  const { theme } = useTheme();
+
   return (
-    <div className="orders-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Page" title="Orders" />
       <GridComponent
         id="gridComp"

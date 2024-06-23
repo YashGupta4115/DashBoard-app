@@ -10,6 +10,7 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import * as React from "react";
 import Header from "../../../Components/Header/Header";
+import { useTheme } from "../../../Context/themeContext";
 
 const Pie = () => {
   const data1 = [
@@ -20,9 +21,14 @@ const Pie = () => {
     { x: "Japan", y: 40, text: "JPN", fill: "#9CD9FF" },
     { x: "United Kingdom", y: 20, text: "UK", fill: "#0450C2" },
   ];
+  const { theme } = useTheme();
 
   return (
-    <div className="areaChart-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Chart" title="Pie" />
       <AccumulationChartComponent id="charts">
         <Inject

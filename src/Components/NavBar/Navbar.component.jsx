@@ -1,21 +1,19 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoSearch } from "react-icons/io5";
-import { LuShoppingCart } from "react-icons/lu";
-import { FiMessageSquare } from "react-icons/fi";
-import { LuBell } from "react-icons/lu";
 import { FaRegCircle } from "react-icons/fa";
 import "./Navbar.styles.css";
 import { useContext, useEffect } from "react";
 import { SideBarContext } from "../../Context/contextProvider";
-import Chat from "../Chat/Chat.jsx";
-import UserProfile from "../UserProfile/UserProfile.jsx";
-import Cart from "../Cart/Cart.jsx";
-import Notifications from "../Notifications/Notifications.jsx";
+import Chat from "../ChartsItems/Chat/Chat.jsx";
+import UserProfile from "../ChartsItems/UserProfile/UserProfile.jsx";
+import Cart from "../ChartsItems/Cart/Cart.jsx";
+import Notifications from "../ChartsItems/Notifications/Notifications.jsx";
 import { Link } from "react-router-dom";
 import { CiLight, CiDark } from "react-icons/ci";
-import "../../Context/theme.css";
-
+import { AiOutlineUser } from "react-icons/ai";
 import { useTheme } from "../../Context/themeContext.jsx";
+import NavBarItem from "./NavBar.item.jsx";
+import navItems from "../../Assests/navBar.json";
 
 const Navbar = () => {
   const {
@@ -67,46 +65,30 @@ const Navbar = () => {
         )}
         <IoSearch className="navBar-icons" />
       </div>
+
+      <div className="navBar-icons-container" onClick={toggleTheme}>
+        {theme === "light" ? (
+          <CiLight className="navBar-icons" />
+        ) : (
+          <CiDark className="navBar-icons" />
+        )}
+      </div>
+
       <div className="right-navbar-container">
-        <div className="navBar-icons-container" onClick={toggleTheme}>
-          {theme === "light" ? (
-            <CiLight className="navBar-icons" />
-          ) : (
-            <CiDark className="navBar-icons" />
-          )}
-        </div>
-        <div className="navBar-icons-container">
-          <LuShoppingCart
-            className="navBar-icons"
-            onClick={() => handleClick("cart")}
-          />
-          <span className="navBar-icon-value">10</span>
-        </div>
-        <div className="navBar-icons-container">
-          <FiMessageSquare
-            className="navBar-icons"
-            onClick={() => handleClick("chat")}
-          />
-          <span className="navBar-icon-value">10</span>
-        </div>
+        {navItems.navBar.map((item) => {
+          return <NavBarItem item={item} handleClick={handleClick} />;
+        })}
 
+        {/* user-Profile section will remain at constant position */}
         <div className="navBar-icons-container">
-          <LuBell
-            className="navBar-icons"
-            onClick={() => handleClick("notifcation")}
-          />
-          <span className="navBar-icon-value">10</span>
-        </div>
-
-        <div className="navBar-icons-container">
-          <FaRegCircle
+          <AiOutlineUser
             className="navBar-icons"
             onClick={() => handleClick("userProfile")}
           />
         </div>
-
+        {/* user-profile section ends */}
         {isClicked.chat && <Chat />}
-        {isClicked.notifcation && <Notifications />}
+        {isClicked.notification && <Notifications />}
         {isClicked.userProfile && <UserProfile />}
         {isClicked.cart && <Cart />}
       </div>

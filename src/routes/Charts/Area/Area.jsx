@@ -12,6 +12,7 @@ import {
   DataLabel,
   AreaSeries,
 } from "@syncfusion/ej2-react-charts";
+import { useTheme } from "../../../Context/themeContext";
 const Area = () => {
   const areaData = [
     { x: 1900, y: 4 },
@@ -42,8 +43,13 @@ const Area = () => {
     interval: 0.5,
     title: "Sales Amount in Millions",
   };
+  const { theme } = useTheme();
   return (
-    <div className="areaChart-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Chart" title="Area" />
       <ChartComponent
         id="charts"

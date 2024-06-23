@@ -11,10 +11,16 @@ import {
   RichTextEditorComponent,
   Toolbar,
 } from "@syncfusion/ej2-react-richtexteditor";
+import { useTheme } from "../../../Context/themeContext";
 const Editor = () => {
   const iframeSetting: object = { enable: true };
+  const { theme } = useTheme();
   return (
-    <div className="editor-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Apps" title="Editor" />
       <RichTextEditorComponent iframeSettings={iframeSetting}>
         Type Something

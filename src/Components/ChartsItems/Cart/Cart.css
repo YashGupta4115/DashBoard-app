@@ -1,0 +1,15 @@
+.cart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position : absolute;
+    z-index : 5;
+    right : 14.5rem;
+    top : 3rem;
+    border-radius: 10px;
+    color: black;
+    width: 18rem;
+    height: 25rem;
+    padding: 10px;
+    background-color: bisque;
+}

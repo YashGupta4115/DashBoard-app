@@ -27,7 +27,7 @@ const { theme } = useTheme();
 
   const darkThemeBackground = "#20232A";
   const darkThemeColor = "#E5FAFB";
-  const { isSideBarOpen } = useContext(SideBarContext);
+  const { isSideBarOpen,screenSize } = useContext(SideBarContext);
 
   return (
     <div className="page-container"style={{
@@ -35,7 +35,7 @@ const { theme } = useTheme();
         color: theme === "light" ? "" : darkThemeColor,
       }}>
       <Sidebar/>
-      <div className={isSideBarOpen?'main-page-container-partial':'main-page-container-full'}>
+      <div className={ (isSideBarOpen && screenSize > 900)?'main-page-container-partial':'main-page-container-full'}>
           <Navbar/>
         <Routes>
           <Route index element={<ECommerce/>}/>

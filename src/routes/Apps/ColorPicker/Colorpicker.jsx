@@ -2,6 +2,7 @@ import React from "react";
 import "./ColorPicker.css";
 import Header from "../../../Components/Header/Header";
 import { ColorPickerComponent } from "@syncfusion/ej2-react-inputs";
+import { useTheme } from "../../../Context/themeContext";
 
 const Colorpicker = () => {
   // let ddb;
@@ -13,9 +14,13 @@ const Colorpicker = () => {
   // function closePopup() {
   //   ddb.toggle();
   // }
-
+  const { theme } = useTheme();
   return (
-    <div className="colorPicker-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="App" title="Color Picker" />
       <h4 style={{ marginLeft: "3rem" }}>Choose Color</h4>
       <div className="wrap">

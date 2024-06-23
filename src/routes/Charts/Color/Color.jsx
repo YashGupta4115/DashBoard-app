@@ -9,6 +9,7 @@ import {
 import "./Color.css";
 
 import Header from "../../../Components/Header/Header";
+import { useTheme } from "../../../Context/themeContext";
 const Color = () => {
   const population_density = [
     { name: "China", density: 153 },
@@ -60,9 +61,13 @@ const Color = () => {
     { name: "Maldives", density: 1719 },
     { name: "Brunei", density: 83 },
   ];
-
+  const { theme } = useTheme();
   return (
-    <div className="colorMap-container">
+    <div
+      className={
+        theme === "light" ? "orders-container" : "orders-container-dark"
+      }
+    >
       <Header Category="Chart" title="Color Map" />
       <MapsComponent title="Population Density of Asian Countries">
         <LayersDirective>
