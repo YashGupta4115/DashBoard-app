@@ -57,9 +57,11 @@ const SparkLine = ({ currentColor, id, type, height, width, color }) => {
       lineWidth={1}
       lineSettings={{ color: color }}
       markerSettings={{ visible: true }}
+      xName="xval"
+      yName="yval"
       tooltipSettings={{
         visible: true,
-        format: "${xval} : ${yval}",
+        format: `${"xval"} : ${"yval"}`,
       }}
       dataSource={[
         { x: 0, xval: "2005", yval: 20090440 },
@@ -73,8 +75,6 @@ const SparkLine = ({ currentColor, id, type, height, width, color }) => {
         { x: 8, xval: "2013", yval: 22262500 },
         { x: 9, xval: "2014", yval: 22507620 },
       ]}
-      xName="xval"
-      yName="yval"
       type={type}
     >
       <Inject services={[SparklineTooltip]} />

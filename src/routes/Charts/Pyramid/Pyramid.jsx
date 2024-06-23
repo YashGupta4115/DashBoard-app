@@ -51,7 +51,7 @@ const Pyramid = () => {
             }}
             tooltip={{
               enable: true,
-              format: "${point.x}: ${point.y}",
+              format: `${"point.x"}: ${"point.y"}`,
             }}
             legendSettings={{
               visible: true,

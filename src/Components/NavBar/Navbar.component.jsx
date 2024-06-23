@@ -1,6 +1,5 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoSearch } from "react-icons/io5";
-import { FaRegCircle } from "react-icons/fa";
 import "./Navbar.styles.css";
 import { useContext, useEffect } from "react";
 import { SideBarContext } from "../../Context/contextProvider";

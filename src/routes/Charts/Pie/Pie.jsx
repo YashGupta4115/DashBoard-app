@@ -49,7 +49,7 @@ const Pie = () => {
                 color: "#000000",
               },
               connectorStyle: { length: "10%" },
-              template: "<div>${point.text}: ${point.y}%</div>", // Custom label template
+              template: `<div>${"point.text"}: ${"point.y"}%</div>`, // Custom label template
             }}
             tooltip={{ enable: true }}
             legendSettings={{
