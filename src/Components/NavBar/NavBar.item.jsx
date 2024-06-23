@@ -2,7 +2,6 @@ import {
   AiOutlineShoppingCart,
   AiOutlineMessage,
   AiOutlineBell,
-  AiOutlineUser,
 } from "react-icons/ai";
 
 const NavBarItem = ({ item, handleClick }) => {
