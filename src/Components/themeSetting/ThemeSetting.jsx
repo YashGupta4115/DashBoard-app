@@ -1,24 +1,36 @@
-import React from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import "./ThemeSetting.css";
 import { useTheme } from "../../Context/themeContext";
 
 const ThemeSetting = () => {
-  const { setTheme, setIsSettingOpen } = useTheme();
-
+  const { displayMode, toggleDisplayMode, setTheme, setIsSettingOpen } =
+    useTheme();
   return (
     <div className="themeSetting-container">
       <div className="themeSetting-header">
         <div className="themeSetting-title">Setting</div>
-        <IoIosCloseCircleOutline onClick={() => setIsSettingOpen(false)} />
+        <IoIosCloseCircleOutline
+          style={{ cursor: "pointer" }}
+          onClick={() => setIsSettingOpen(false)}
+        />
       </div>
       <div className="themeSetting-body1">
         <div className="themeBody1-title">ThemeOptions</div>
         <div>
-          <input type="radio" /> Light
-        </div>
-        <div>
-          <input type="radio" /> Dark
+          <input
+            type="radio"
+            name="displayMode"
+            defaultChecked={displayMode === "light"}
+            onClick={toggleDisplayMode}
+          />{" "}
+          Light
+          <input
+            type="radio"
+            name="displayMode"
+            defaultChecked={displayMode === "dark"}
+            onClick={toggleDisplayMode}
+          />{" "}
+          Dark
         </div>
       </div>
 

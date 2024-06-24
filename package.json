@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "*",
+    "@babel/plugin-proposal-private-property-in-object":"",
     "@syncfusion/ej2-react-calendars": "^26.1.38",
     "@syncfusion/ej2-react-charts": "^26.1.38",
     "@syncfusion/ej2-react-grids": "^26.1.38",
@@ -24,6 +24,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts --max_old_space_size=4096 start",
     "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test",

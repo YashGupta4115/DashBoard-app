@@ -8,7 +8,6 @@ import UserProfile from "../ChartsItems/UserProfile/UserProfile.jsx";
 import Cart from "../ChartsItems/Cart/Cart.jsx";
 import Notifications from "../ChartsItems/Notifications/Notifications.jsx";
 import { Link } from "react-router-dom";
-import { CiLight, CiDark } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 import { useTheme } from "../../Context/themeContext.jsx";
 import NavBarItem from "./NavBar.item.jsx";
@@ -44,7 +43,7 @@ const Navbar = () => {
     }
   }, [screenSize, setIsSideBarOpen]); // to handle sidebar toggle when screen is wide enough
 
-  const { displayMode, toggleDisplayMode, theme } = useTheme();
+  const { displayMode, theme } = useTheme();
 
   return (
     <div
@@ -66,14 +65,6 @@ const Navbar = () => {
           </>
         )}
         <IoSearch className="navBar-icons" />
-      </div>
-
-      <div className="navBar-icons-container" onClick={toggleDisplayMode}>
-        {displayMode === "light" ? (
-          <CiLight className="navBar-icons" />
-        ) : (
-          <CiDark className="navBar-icons" />
-        )}
       </div>
 
       <div className="right-navbar-container">
