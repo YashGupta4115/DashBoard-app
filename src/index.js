@@ -12,6 +12,7 @@ import { ThemeProvider } from './Context/themeContext';
 registerLicense('Ngo9BigBOggjHTQxAR8/V1NCaF5cXmtCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXlccXRSR2dZVkN3X0Q=');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+reportWebVitals(console.log);
 root.render(
   <BrowserRouter>
   <SideBarProvider>
@@ -22,8 +23,4 @@ root.render(
   </BrowserRouter>
     
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
