@@ -169,15 +169,8 @@ const ECommerce = () => {
                   : "ecommerce-stats-item-dark"
               }
             >
-              <SparkLine
-                currentColor="blue"
-                id="line-sparkline"
-                type="Line"
-                height="80px"
-                width="100px"
-                // data={}
-                color={themeButton}
-              />
+              <SparkLine width={300} height={250} />
+              <span>Sales</span>
               <Button text="Add" width="150px" />
             </div>
           </div>
@@ -188,7 +181,7 @@ const ECommerce = () => {
                 : "ecommerce-stats-item-dark"
             }
           >
-            <Stacked width="330px" height="360px" />
+            <Stacked width={300} height={250} />
           </div>
         </div>
         <div className="revenue-graph-section">

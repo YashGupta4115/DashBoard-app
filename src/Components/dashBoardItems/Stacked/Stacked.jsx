@@ -1,88 +1,40 @@
 import React from "react";
-import {
-  ChartComponent,
-  SeriesCollectionDirective,
-  SeriesDirective,
-  Inject,
-  Legend,
-  Category,
-  StackingColumnSeries,
-  Tooltip,
-} from "@syncfusion/ej2-react-charts";
-
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
 const Stacked = ({ width, height }) => {
-  const stackedCustomSeries = [
-    {
-      dataSource: [
-        { x: "Jan", y: 10 },
-        { x: "Feb", y: 20 },
-        { x: "Mar", y: 30 },
-        { x: "Apr", y: 40 },
-        { x: "May", y: 50 },
-        { x: "Jun", y: 60 },
-        { x: "Jul", y: 70 },
-        { x: "Aug", y: 80 },
-        { x: "Sep", y: 90 },
-        { x: "Oct", y: 100 },
-        { x: "Nov", y: 110 },
-        { x: "Dec", y: 120 },
-      ],
-      type: "StackingColumn",
-      xName: "x",
-      yName: "y",
-      name: "Budget",
-      background: "blue",
-    },
-    {
-      dataSource: [
-        { x: "Jan", y: 10 },
-        { x: "Feb", y: 20 },
-        { x: "Mar", y: 30 },
-        { x: "Apr", y: 40 },
-        { x: "May", y: 50 },
-        { x: "Jun", y: 60 },
-        { x: "Jul", y: 70 },
-        { x: "Aug", y: 80 },
-        { x: "Sep", y: 90 },
-        { x: "Oct", y: 100 },
-        { x: "Nov", y: 110 },
-        { x: "Dec", y: 120 },
-      ],
-      type: "StackingColumn",
-      xName: "x",
-      yName: "y",
-      name: "Expenses",
-      background: "gray",
-    },
+  const dataSource = [
+    { x: "Jan", expense: 100, budget: 150 },
+    { x: "Feb", expense: 120, budget: 140 },
+    { x: "Mar", expense: 130, budget: 35 },
+    { x: "Apr", expense: 140, budget: 90 },
+    { x: "May", expense: 150, budget: 100 },
+    { x: "Jun", expense: 160, budget: 130 },
+    { x: "Jul", expense: 170, budget: 200 },
+    { x: "Aug", expense: 180, budget: 240 },
+    { x: "Sep", expense: 100, budget: 200 },
+    { x: "Oct", expense: 150, budget: 180 },
+    { x: "Nov", expense: 180, budget: 280 },
+    { x: "Dec", expense: 200, budget: 220 },
   ];
-
-  const primaryXAxis = {
-    valueType: "Category",
-    title: "Months",
-  };
-
-  const primaryYAxis = {
-    title: "Values",
-  };
-
   return (
     <div>
-      <ChartComponent
+      <BarChart
         width={width}
         height={height}
-        id="stack-chart"
-        primaryXAxis={primaryXAxis}
-        primaryYAxis={primaryYAxis}
-        chartArea={{ border: { width: 0 } }}
-        tooltip={{ enable: true }}
+        data={dataSource}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
       >
-        <Inject services={[Legend, Category, StackingColumnSeries, Tooltip]} />
-        <SeriesCollectionDirective>
-          {stackedCustomSeries.map((item, index) => (
-            <SeriesDirective key={index} {...item} />
-          ))}
-        </SeriesCollectionDirective>
-      </ChartComponent>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="expense" stackId="a" fill="#404041" />
+        <Bar dataKey="budget" stackId="a" fill="#00BDAE" />
+      </BarChart>
     </div>
   );
 };

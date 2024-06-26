@@ -1,21 +1,10 @@
 import React from "react";
 import "./Customers.css";
-import {
-  GridComponent,
-  ColumnsDirective,
-  ColumnDirective,
-  Page,
-  Selection,
-  Edit,
-  Inject,
-  Sort,
-  Filter,
-  Toolbar,
-} from "@syncfusion/ej2-react-grids";
 
 import { customersData, customersGrid } from "../../../Assests/data/dummy";
 import Header from "../../../Components/Header/Header";
 import { useTheme } from "../../../Context/themeContext";
+import Table from "../../../Components/Table/tableHeader";
 
 const Customers = () => {
   const { displayMode } = useTheme();
@@ -26,27 +15,21 @@ const Customers = () => {
       }
     >
       <Header Category="Page" title="Customers" />
-      <GridComponent
-        className="gridComponent"
-        id="gridComp"
-        dataSource={customersData}
-        allowPaging
-        allowFiltering
-        allowSorting
-        toolbar={["Delete"]}
-        editSettings={{ allowDeleting: true, allowEditing: true }}
-        width="auto"
-        rowHeight={50} // Set the desired row height here
-      >
-        <ColumnsDirective>
-          {customersGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))}
-        </ColumnsDirective>
-        <Inject services={[Page, Edit, Selection, Sort, Filter, Toolbar]} />
-      </GridComponent>
+      <Table tableData={customersData} tableGrid={customersGrid} />
     </div>
   );
 };
 
 export default Customers;
+
+// CustomerID: 1001,
+// CustomerName: 'Nirav Joshi',
+// CustomerEmail: 'nirav@gmail.com',
+// CustomerImage:
+//   avatar2,
+// ProjectName: 'Hosting Press HTML',
+// Status: 'Active',
+// StatusBg: '#8BE78B',
+// Weeks: '40',
+// Budget: '$2.4k',
+// Location: 'India',

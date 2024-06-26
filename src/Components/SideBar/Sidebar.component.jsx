@@ -38,9 +38,9 @@ const Sidebar = () => {
       { id: 1, name: "Area", title: "Area", route: "/charts/area" },
       { id: 2, name: "Line", title: "Line", route: "/charts/line" },
       { id: 3, name: "Pie", title: "Pie", route: "/charts/pie" },
-      { id: 4, name: "Color", title: "Color", route: "/charts/color" },
-      { id: 5, name: "Finance", title: "Finance", route: "/charts/finance" },
-      { id: 6, name: "Pyramid", title: "Pyramid", route: "/charts/pyramid" },
+      // { id: 4, name: "Color", title: "Color", route: "/charts/color" },
+      // { id: 5, name: "Finance", title: "Finance", route: "/charts/finance" },
+      // { id: 6, name: "Pyramid", title: "Pyramid", route: "/charts/pyramid" },
     ],
   };
 
@@ -75,7 +75,6 @@ const Sidebar = () => {
       [page]: true,
     });
   };
-  console.log(pageSelected);
   const { displayMode, theme } = useTheme();
 
   const darkThemeBackground = "#33373E";

@@ -7,6 +7,7 @@
 .orders-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 80%;
     margin-top: 5rem;
     margin-bottom: 2rem;
@@ -14,16 +15,16 @@
     padding: 30px;
     border-radius: 15px;
     margin-bottom: 10rem;
-    height: 100%;
 }
 
 .orders-container-dark{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 80%;
     margin-top: 5rem;
-    margin-bottom: 2rem;
     background-color: #33373E;
     padding: 30px;
     border-radius : 15px;
+    margin-bottom: 10rem;
 }

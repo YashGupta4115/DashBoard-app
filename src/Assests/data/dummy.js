@@ -43,40 +43,26 @@ export const gridOrderStatus = (props) => (
 );
 
 export const kanbanGrid = [
-  { headerText: 'To Do',
+  { Header: 'To Do',
     keyField: 'Open',
     allowToggle: true },
 
-  { headerText: 'In Progress',
+  { Header: 'In Progress',
     keyField: 'InProgress',
     allowToggle: true },
 
-  { headerText: 'Testing',
+  { Header: 'Testing',
     keyField: 'Testing',
     allowToggle: true,
     isExpanded: false },
 
-  { headerText: 'Done',
+  { Header: 'Done',
     keyField: 'Close',
     allowToggle: true },
 ];
-// const gridEmployeeProfile = (props) => (
-//   <div className="flex items-center gap-2">
-//     <img
-//       className="rounded-full w-10 h-10"
-//       src={props.EmployeeImage}
-//       alt="employee"
-//     />
-//     <p>{props.Name}</p>
-//   </div>
-// );
 
-const gridEmployeeCountry = (props) => (
-  <div className="flex items-center justify-center gap-2">
-    <GrLocation />
-    <span>{props.Country}</span>
-  </div>
-);
+
+
 export const EditorData = () => (
   <div>
     <h3>
@@ -119,26 +105,7 @@ export const EditorData = () => (
     </h3>
   </div>
 );
-// const customerGridImage = (props) => (
-//   <div className="image flex gap-4">
-//     <img
-//       className="rounded-full w-10 h-10"
-//       src={props.CustomerImage}
-//       alt="employee"
-//     />
-//     <div>
-//       <p>{props.CustomerName}</p>
-//       <p>{props.CustomerEmail}</p>
-//     </div>
-//   </div>
-// );
 
-const customerGridStatus = (props) => (
-  <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
-    <p>{props.Status}</p>
-  </div>
-);
 export const areaPrimaryXAxis = {
   valueType: 'DateTime',
   labelFormat: 'y',
@@ -391,83 +358,108 @@ export const LinePrimaryYAxis = {
 };
 
 export const customersGrid = [
-  { type: 'checkbox', width: '50' },
-  { headerText: 'Name',
+  { type: 'checkbox', width: '50', accessor : 'checkboxArea' },
+  {
+    Header : 'Avatar',
+    accessor: 'CustomerImage',
+    Cell : ({row: {original}}) => (
+      <img src = {original.CustomerImage} style={{width: '60px', height: '60px'}} alt= 'customer'/>
+    )
+  },
+  { Header: 'Name',
+    accessor : 'CustomerName',
     width: '150',
-    template: (props) => (
-      <img src={props.customerGridImage} className="grid-image" alt="Product" />
-    ),
+    // Cell : ({row : {original}}) => (
+    //   <img src={original.customerGridImage}  alt="Product" />
+    // ),
     textAlign: 'Center' },
-  { field: 'ProjectName',
-    headerText: 'Project Name',
+  { accessor: 'ProjectName',
+    Header: 'Project Name',
     width: '150',
     textAlign: 'Center' },
-  { field: 'Status',
-    headerText: 'Status',
+  { accessor: 'Status',
+    Header: 'Status',
     width: '130',
     format: 'yMd',
     textAlign: 'Center',
-    template: customerGridStatus },
+    Cell : ({row : {original}})=><div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
+    <p style={{ background: original.StatusBg }} className="rounded-full h-3 w-3" />
+    <p>{original.Status}</p>
+  </div>
+   },
   {
-    field: 'Weeks',
-    headerText: 'Weeks',
+    accessor: 'Weeks',
+    Header: 'Weeks',
     width: '100',
     format: 'C2',
     textAlign: 'Center' },
-  { field: 'Budget',
-    headerText: 'Budget',
+  { accessor: 'Budget',
+    Header: 'Budget',
     width: '100',
     format: 'yMd',
     textAlign: 'Center' },
 
-  { field: 'Location',
-    headerText: 'Location',
+  { accessor: 'Location',
+    Header: 'Location',
     width: '150',
     textAlign: 'Center' },
 
-  { field: 'CustomerID',
-    headerText: 'Customer ID',
+  { accessor: 'CustomerID',
+    Header: 'Customer ID',
     width: '120',
     textAlign: 'Center',
     isPrimaryKey: true,
   },
-
 ];
 
 export const employeesGrid = [
-  { headerText: 'Employee',
+  {
+    Header : 'Avatar',
+    accessor : 'EmployeeImage',
     width: '150',
-    template: (props) => (
-      <img src={props.gridEmployeeProfile} className="grid-image" alt="Product" />
+    Cell: ({row: {original}}) => (
+      <div className="flex items-center gap-2">
+        <img
+          className="rounded-full w-10 h-10"
+          src={original.EmployeeImage}
+          alt="employee"
+          style={{height:'60px', width : '60px'}}
+        />
+      </div>                                                                                                              
     ),
     textAlign: 'Center' },
-  { field: 'Name',
-    headerText: '',
+  { 
+    accessor: 'Name',
+    Header: 'Employee',
     width: '0',
     textAlign: 'Center',
   },
-  { field: 'Title',
-    headerText: 'Designation',
+  { accessor: 'Title',
+    Header: 'Designation',
     width: '170',
     textAlign: 'Center',
   },
-  { headerText: 'Country',
+  { Header: 'Country',
     width: '120',
     textAlign: 'Center',
-    template: gridEmployeeCountry },
+    Cell: ({row:{original}})=>
+      <div className="flex items-center justify-center gap-2">
+      <GrLocation />
+      <span>{original.Country}</span>
+  </div>},
 
-  { field: 'HireDate',
-    headerText: 'Hire Date',
+  { accessor: 'HireDate',
+    Header: 'Hire Date',
     width: '135',
     format: 'yMd',
     textAlign: 'Center' },
 
-  { field: 'ReportsTo',
-    headerText: 'Reports To',
+  { accessor: 'ReportsTo',
+    Header: 'Reports To',
     width: '120',
     textAlign: 'Center' },
-  { field: 'EmployeeID',
-    headerText: 'Employee ID',
+  { accessor: 'EmployeeID',
+    Header: 'Employee ID',
     width: '125',
     textAlign: 'Center' },
 ];
@@ -777,7 +769,7 @@ export const medicalproBranding = {
   data: [
     {
       title: 'Due Date',
-      desc: 'Oct 23, 2021',
+      desc: 'Oct 23, 2024',
     },
     {
       title: 'Budget',
@@ -875,52 +867,55 @@ export const userProfileData = [
 
 export const ordersGrid = [
   {
-    headerText: 'Image',
-    template: (props) => (
-      <img src={props.ProductImage} className="grid-image" alt="Product" />
-    ),
-    textAlign: 'Center',
+    accessor: "OrderID",
+    Header: 'Order ID',
     width: '120',
-  },
-  {
-    field: 'OrderItems',
-    headerText: 'Item',
-    width: '150',
-    editType: 'dropdownedit',
     textAlign: 'Center',
   },
-  { field: 'CustomerName',
-    headerText: 'Customer Name',
+  { accessor: 'CustomerName',
+    Header: 'Customer Name',
     width: '150',
     textAlign: 'Center',
   },
   {
-    field: 'TotalAmount',
-    headerText: 'Total Amount',
+    accessor: 'TotalAmount',
+    Header: 'Total Amount',
     format: 'C2',
     textAlign: 'Center',
     editType: 'numericedit',
     width: '150',
   },
   {
-    headerText: 'Status',
-    template: gridOrderStatus,
-    field: 'OrderItems',
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderID',
-    headerText: 'Order ID',
-    width: '120',
+    accessor: 'OrderItems',
+    Header: 'Item',
+    width: '150',
+    editType: 'dropdownedit',
     textAlign: 'Center',
   },
-
   {
-    field: 'Location',
-    headerText: 'Location',
+    accessor: 'Location',
+    Header: 'Location',
     width: '150',
     textAlign: 'Center',
+  },
+  {
+    Header: 'Status',
+    accessor: 'status',
+    Cell: ({ row: { original } }) => 
+      <button
+    type="button"
+    style={{ background: original.StatusBg, border: '0px', padding: '10px', borderRadius:'10px', color: 'white' }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {original.Status}
+  </button>
+  },
+  {
+    Header: 'Image',
+    accessor: 'image',
+    Cell : ({row : {original}})=><img src={original.ProductImage} style={{height:'60px', width:'60px'}} alt='product'/>,
+    textAlign: 'Center',
+    width: '120',
   },
 ];
 
@@ -1491,7 +1486,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1501,7 +1496,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1511,7 +1506,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1521,7 +1516,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1531,7 +1526,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1541,7 +1536,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1551,7 +1546,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1561,7 +1556,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1572,7 +1567,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1582,7 +1577,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1592,7 +1587,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1602,7 +1597,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1612,7 +1607,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1622,7 +1617,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1632,7 +1627,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1642,7 +1637,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1652,7 +1647,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1662,7 +1657,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1672,7 +1667,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1682,7 +1677,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1692,7 +1687,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1702,7 +1697,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1713,7 +1708,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1723,7 +1718,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1733,7 +1728,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1743,7 +1738,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1753,7 +1748,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1763,7 +1758,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1773,7 +1768,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1784,7 +1779,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1794,7 +1789,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1804,7 +1799,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1814,7 +1809,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1824,7 +1819,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1834,7 +1829,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1844,7 +1839,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1855,7 +1850,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1865,7 +1860,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1875,7 +1870,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1885,7 +1880,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1895,7 +1890,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1905,7 +1900,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1915,7 +1910,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1926,7 +1921,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1936,7 +1931,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1946,7 +1941,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1956,7 +1951,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1966,7 +1961,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1976,7 +1971,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1986,7 +1981,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -1997,7 +1992,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2007,7 +2002,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2017,7 +2012,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2027,7 +2022,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2037,7 +2032,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2047,7 +2042,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2057,7 +2052,7 @@ export const employeesData = [
     EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2068,7 +2063,7 @@ export const employeesData = [
     EmployeeID: 2,
     Name: 'Nasimiyu Danai',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2078,7 +2073,7 @@ export const employeesData = [
     EmployeeID: 3,
     Name: 'Iulia Albu',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2088,7 +2083,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Siegbert Gottfried',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2098,7 +2093,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Omar Darobe',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2108,7 +2103,7 @@ export const employeesData = [
     EmployeeID: 4,
     Name: 'Penjani Inyene',
     Title: 'Marketing Head',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2118,7 +2113,7 @@ export const employeesData = [
     EmployeeID: 5,
     Name: 'Miron Vitold',
     Title: 'HR',
-    HireDate: '01/02/2021',
+    HireDate: '01/02/2024',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
@@ -2130,14 +2125,13 @@ export const ordersData = [
   {
     OrderID: 10248,
     CustomerName: 'Vinet',
-
     TotalAmount: 32.38,
     OrderItems: 'Fresh Tomato',
     Location: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
     ProductImage:
-      product6,
+    product6,
   },
   {
     OrderID: 345653,
@@ -2854,192 +2848,192 @@ export const scheduleData = [
     Id: 1,
     Subject: 'Explosion of Betelgeuse Star',
     Location: 'Space Center USA',
-    StartTime: '2021-01-10T04:00:00.000Z',
-    EndTime: '2021-01-10T05:30:00.000Z',
+    StartTime: '2024-01-10T04:00:00.000Z',
+    EndTime: '2024-01-10T05:30:00.000Z',
     CategoryColor: '#1aaa55',
   },
   {
     Id: 2,
     Subject: 'Thule Air Crash Report',
     Location: 'Newyork City',
-    StartTime: '2021-01-11T06:30:00.000Z',
-    EndTime: '2021-01-11T08:30:00.000Z',
+    StartTime: '2024-01-11T06:30:00.000Z',
+    EndTime: '2024-01-11T08:30:00.000Z',
     CategoryColor: '#357cd2',
   },
   {
     Id: 3,
     Subject: 'Blue Moon Eclipse',
     Location: 'Space Center USA',
-    StartTime: '2021-01-12T04:00:00.000Z',
-    EndTime: '2021-01-12T05:30:00.000Z',
+    StartTime: '2024-01-12T04:00:00.000Z',
+    EndTime: '2024-01-12T05:30:00.000Z',
     CategoryColor: '#7fa900',
   },
   {
     Id: 4,
-    Subject: 'Meteor Showers in 2021',
+    Subject: 'Meteor Showers in 2024',
     Location: 'Space Center USA',
-    StartTime: '2021-01-13T07:30:00.000Z',
-    EndTime: '2021-01-13T09:00:00.000Z',
+    StartTime: '2024-01-13T07:30:00.000Z',
+    EndTime: '2024-01-13T09:00:00.000Z',
     CategoryColor: '#ea7a57',
   },
   {
     Id: 5,
     Subject: 'Milky Way as Melting pot',
     Location: 'Space Center USA',
-    StartTime: '2021-01-14T06:30:00.000Z',
-    EndTime: '2021-01-14T08:30:00.000Z',
+    StartTime: '2024-01-14T06:30:00.000Z',
+    EndTime: '2024-01-14T08:30:00.000Z',
     CategoryColor: '#00bdae',
   },
   {
     Id: 6,
     Subject: 'Mysteries of Bermuda Triangle',
     Location: 'Bermuda',
-    StartTime: '2021-01-14T04:00:00.000Z',
-    EndTime: '2021-01-14T05:30:00.000Z',
+    StartTime: '2024-01-14T04:00:00.000Z',
+    EndTime: '2024-01-14T05:30:00.000Z',
     CategoryColor: '#f57f17',
   },
   {
     Id: 7,
     Subject: 'Glaciers and Snowflakes',
     Location: 'Himalayas',
-    StartTime: '2021-01-15T05:30:00.000Z',
-    EndTime: '2021-01-15T07:00:00.000Z',
+    StartTime: '2024-01-15T05:30:00.000Z',
+    EndTime: '2024-01-15T07:00:00.000Z',
     CategoryColor: '#1aaa55',
   },
   {
     Id: 8,
     Subject: 'Life on Mars',
     Location: 'Space Center USA',
-    StartTime: '2021-01-16T03:30:00.000Z',
-    EndTime: '2021-01-16T04:30:00.000Z',
+    StartTime: '2024-01-16T03:30:00.000Z',
+    EndTime: '2024-01-16T04:30:00.000Z',
     CategoryColor: '#357cd2',
   },
   {
     Id: 9,
     Subject: 'Alien Civilization',
     Location: 'Space Center USA',
-    StartTime: '2021-01-18T05:30:00.000Z',
-    EndTime: '2021-01-18T07:30:00.000Z',
+    StartTime: '2024-01-18T05:30:00.000Z',
+    EndTime: '2024-01-18T07:30:00.000Z',
     CategoryColor: '#7fa900',
   },
   {
     Id: 10,
     Subject: 'Wildlife Galleries',
     Location: 'Africa',
-    StartTime: '2021-01-20T05:30:00.000Z',
-    EndTime: '2021-01-20T07:30:00.000Z',
+    StartTime: '2024-01-20T05:30:00.000Z',
+    EndTime: '2024-01-20T07:30:00.000Z',
     CategoryColor: '#ea7a57',
   },
   {
     Id: 11,
-    Subject: 'Best Photography 2021',
+    Subject: 'Best Photography 2024',
     Location: 'London',
-    StartTime: '2021-01-21T04:00:00.000Z',
-    EndTime: '2021-01-21T05:30:00.000Z',
+    StartTime: '2024-01-21T04:00:00.000Z',
+    EndTime: '2024-01-21T05:30:00.000Z',
     CategoryColor: '#00bdae',
   },
   {
     Id: 12,
     Subject: 'Smarter Puppies',
     Location: 'Sweden',
-    StartTime: '2021-01-08T04:30:00.000Z',
-    EndTime: '2021-01-08T06:00:00.000Z',
+    StartTime: '2024-01-08T04:30:00.000Z',
+    EndTime: '2024-01-08T06:00:00.000Z',
     CategoryColor: '#f57f17',
   },
   {
     Id: 13,
     Subject: 'Myths of Andromeda Galaxy',
     Location: 'Space Center USA',
-    StartTime: '2021-01-06T05:00:00.000Z',
-    EndTime: '2021-01-06T07:00:00.000Z',
+    StartTime: '2024-01-06T05:00:00.000Z',
+    EndTime: '2024-01-06T07:00:00.000Z',
     CategoryColor: '#1aaa55',
   },
   {
     Id: 14,
     Subject: 'Aliens vs Humans',
     Location: 'Research Center of USA',
-    StartTime: '2021-01-05T04:30:00.000Z',
-    EndTime: '2021-01-05T06:00:00.000Z',
+    StartTime: '2024-01-05T04:30:00.000Z',
+    EndTime: '2024-01-05T06:00:00.000Z',
     CategoryColor: '#357cd2',
   },
   {
     Id: 15,
     Subject: 'Facts of Humming Birds',
     Location: 'California',
-    StartTime: '2021-01-19T04:00:00.000Z',
-    EndTime: '2021-01-19T05:30:00.000Z',
+    StartTime: '2024-01-19T04:00:00.000Z',
+    EndTime: '2024-01-19T05:30:00.000Z',
     CategoryColor: '#7fa900',
   },
   {
     Id: 16,
     Subject: 'Sky Gazers',
     Location: 'Alaska',
-    StartTime: '2021-01-22T05:30:00.000Z',
-    EndTime: '2021-01-22T07:30:00.000Z',
+    StartTime: '2024-01-22T05:30:00.000Z',
+    EndTime: '2024-01-22T07:30:00.000Z',
     CategoryColor: '#ea7a57',
   },
   {
     Id: 17,
     Subject: 'The Cycle of Seasons',
     Location: 'Research Center of USA',
-    StartTime: '2021-01-11T00:00:00.000Z',
-    EndTime: '2021-01-11T02:00:00.000Z',
+    StartTime: '2024-01-11T00:00:00.000Z',
+    EndTime: '2024-01-11T02:00:00.000Z',
     CategoryColor: '#00bdae',
   },
   {
     Id: 18,
     Subject: 'Space Galaxies and Planets',
     Location: 'Space Center USA',
-    StartTime: '2021-01-11T11:30:00.000Z',
-    EndTime: '2021-01-11T13:00:00.000Z',
+    StartTime: '2024-01-11T11:30:00.000Z',
+    EndTime: '2024-01-11T13:00:00.000Z',
     CategoryColor: '#f57f17',
   },
   {
     Id: 19,
     Subject: 'Lifecycle of Bumblebee',
     Location: 'San Fransisco',
-    StartTime: '2021-01-14T00:30:00.000Z',
-    EndTime: '2021-01-14T02:00:00.000Z',
+    StartTime: '2024-01-14T00:30:00.000Z',
+    EndTime: '2024-01-14T02:00:00.000Z',
     CategoryColor: '#7fa900',
   },
   {
     Id: 20,
     Subject: 'Alien Civilization',
     Location: 'Space Center USA',
-    StartTime: '2021-01-14T10:30:00.000Z',
-    EndTime: '2021-01-14T12:30:00.000Z',
+    StartTime: '2024-01-14T10:30:00.000Z',
+    EndTime: '2024-01-14T12:30:00.000Z',
     CategoryColor: '#ea7a57',
   },
   {
     Id: 21,
     Subject: 'Alien Civilization',
     Location: 'Space Center USA',
-    StartTime: '2021-01-10T08:30:00.000Z',
-    EndTime: '2021-01-10T10:30:00.000Z',
+    StartTime: '2024-01-10T08:30:00.000Z',
+    EndTime: '2024-01-10T10:30:00.000Z',
     CategoryColor: '#ea7a57',
   },
   {
     Id: 22,
     Subject: 'The Cycle of Seasons',
     Location: 'Research Center of USA',
-    StartTime: '2021-01-12T09:00:00.000Z',
-    EndTime: '2021-01-12T10:30:00.000Z',
+    StartTime: '2024-01-12T09:00:00.000Z',
+    EndTime: '2024-01-12T10:30:00.000Z',
     CategoryColor: '#00bdae',
   },
   {
     Id: 23,
     Subject: 'Sky Gazers',
     Location: 'Greenland',
-    StartTime: '2021-01-15T09:00:00.000Z',
-    EndTime: '2021-01-15T10:30:00.000Z',
+    StartTime: '2024-01-15T09:00:00.000Z',
+    EndTime: '2024-01-15T10:30:00.000Z',
     CategoryColor: '#ea7a57',
   },
   {
     Id: 24,
     Subject: 'Facts of Humming Birds',
     Location: 'California',
-    StartTime: '2021-01-16T07:00:00.000Z',
-    EndTime: '2021-01-16T09:00:00.000Z',
+    StartTime: '2024-01-16T07:00:00.000Z',
+    EndTime: '2024-01-16T09:00:00.000Z',
     CategoryColor: '#7fa900',
   },
 ];
@@ -3077,14 +3071,14 @@ export const lineChartData = [
 export const dropdownData = [
   {
     Id: '1',
-    Time: 'March 2021',
+    Time: 'March 2024',
   },
   {
     Id: '2',
-    Time: 'April 2021',
+    Time: 'April 2024',
   }, {
     Id: '3',
-    Time: 'May 2021',
+    Time: 'May 2024',
   },
 ];
 export const SparklineAreaData = [
@@ -3156,7 +3150,7 @@ export const ecomPieChartData = [
   { x: '2018', y: 18, text: '35%' },
   { x: '2019', y: 18, text: '15%' },
   { x: '2020', y: 18, text: '25%' },
-  { x: '2021', y: 18, text: '25%' },
+  { x: '2024', y: 18, text: '25%' },
 ];
 
 export const stackedChartData = [

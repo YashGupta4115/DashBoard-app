@@ -1,50 +1,32 @@
-import {
-  Category,
-  ChartComponent,
-  ColumnSeries,
-  Inject,
-  Legend,
-  LineSeries,
-  SeriesCollectionDirective,
-  SeriesDirective,
-  Tooltip,
-} from "@syncfusion/ej2-react-charts";
 import "./Line.css";
 import Header from "../../../Components/Header/Header";
 import { useTheme } from "../../../Context/themeContext";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianGrid,
+} from "recharts";
 
-const Line = () => {
+const LineCharts = () => {
   const data = [
-    { month: "Jan", sales: 35 },
-    { month: "Feb", sales: 28 },
-    { month: "Mar", sales: 34 },
-    { month: "Apr", sales: 32 },
-    { month: "May", sales: 40 },
-    { month: "Jun", sales: 32 },
-    { month: "Jul", sales: 35 },
-    { month: "Aug", sales: 55 },
-    { month: "Sep", sales: 38 },
-    { month: "Oct", sales: 30 },
-    { month: "Nov", sales: 25 },
-    { month: "Dec", sales: 32 },
+    { month: "Jan", product1: 35, product2: 65 },
+    { month: "Feb", product1: 28, product2: 48 },
+    { month: "Mar", product1: 34, product2: 34 },
+    { month: "Apr", product1: 32, product2: 12 },
+    { month: "May", product1: 40, product2: 10 },
+    { month: "Jun", product1: 32, product2: 32 },
+    { month: "Jul", product1: 35, product2: 75 },
+    { month: "Aug", product1: 55, product2: 35 },
+    { month: "Sep", product1: 38, product2: 55 },
+    { month: "Oct", product1: 30, product2: 90 },
+    { month: "Nov", product1: 25, product2: 15 },
+    { month: "Dec", product1: 32, product2: 72 },
   ];
-
-  const data2 = [
-    { month: "Jan", sales: 65 },
-    { month: "Feb", sales: 48 },
-    { month: "Mar", sales: 34 },
-    { month: "Apr", sales: 12 },
-    { month: "May", sales: 10 },
-    { month: "Jun", sales: 32 },
-    { month: "Jul", sales: 75 },
-    { month: "Aug", sales: 35 },
-    { month: "Sep", sales: 55 },
-    { month: "Oct", sales: 90 },
-    { month: "Nov", sales: 15 },
-    { month: "Dec", sales: 72 },
-  ];
-  const primaryxAxis = { valueType: "Category" };
-  const { displayMode } = useTheme();
+  const { displayMode, theme } = useTheme();
   return (
     <div
       className={
@@ -52,35 +34,22 @@ const Line = () => {
       }
     >
       <Header Category="Chart" title="Line Chart" />
-      <ChartComponent
-        id="charts"
-        primaryXAxis={primaryxAxis}
-        height="470px"
-        tooltip={{ enable: true }}
-        legendSettings={{
-          visible: true,
-          position: "Top",
-        }}
+      <LineChart
+        width={800}
+        height={480}
+        data={data}
+        majorGridLines="0"
+        minorGridLines="0"
       >
-        <Inject
-          services={[ColumnSeries, Legend, Tooltip, LineSeries, Category]}
-        />
-        <SeriesCollectionDirective xName="month" yName="sales">
-          <SeriesDirective
-            dataSource={data}
-            xName="month"
-            yName="sales"
-            name="Sales A"
-          />
-          <SeriesDirective
-            dataSource={data2}
-            xName="month"
-            yName="sales"
-            name="Sales B"
-          />
-        </SeriesCollectionDirective>
-      </ChartComponent>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="month" />
+        <YAxis dataKey="product2" />
+        <Legend></Legend>
+        <Tooltip />
+        <Line type="monotone" dataKey="product1" stroke={theme} />
+        <Line type="monotone" dataKey="product2" stroke={theme} />
+      </LineChart>
     </div>
   );
 };
-export default Line;
+export default LineCharts;

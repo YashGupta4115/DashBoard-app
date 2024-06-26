@@ -1,84 +1,62 @@
-// import React from "react";
-// import {
-//   SparklineComponent,
-//   Inject,
-//   SparklineTooltip,
-// } from "@syncfusion/ej2-react-charts";
+import React from "react";
+import { LineChart, Line, Tooltip, XAxis, YAxis } from "recharts";
+import { useTheme } from "../../../Context/themeContext";
 
-// const SparkLine = ({ currentColor, id, type, height, width, color }) => {
-//   return (
-//     <SparklineComponent
-//       id={id}
-//       height={height}
-//       width={width}
-//       type={type}
-//       lineWidth={1}
-//       valueType="Numeric"
-//       fill={color}
-//       border={{ color: currentColor }}
-//       dataSource={[
-//         { x: 0, xval: "2005", yval: 20090440 },
-//         { x: 1, xval: "2006", yval: 20264080 },
-//         { x: 2, xval: "2007", yval: 20434180 },
-//         { x: 3, xval: "2008", yval: 21007310 },
-//         { x: 4, xval: "2009", yval: 21262640 },
-//         { x: 5, xval: "2010", yval: 21515750 },
-//         { x: 6, xval: "2011", yval: 21266710 },
-//         { x: 7, xval: "2012", yval: 22015580 },
-//         { x: 8, xval: "2013", yval: 22562500 },
-//         { x: 9, xval: "2014", yval: 22507620 },
-//       ]}
-//       xName="xval"
-//       yName="yval"
-//       tooltipSettings={{
-//         visible: true,
-//         format: "${xval} : ${yval}",
-//       }}
-//     >
-//       <Inject services={[SparklineTooltip]} />
-//     </SparklineComponent>
-//   );
-// };
+const data = [
+  {
+    name: "2000",
+    sales: 1000,
+    amt: 2400,
+  },
+  {
+    name: "2004",
+    sales: 1398,
+    amt: 2210,
+  },
+  {
+    name: "2008",
+    sales: 2800,
+    amt: 2290,
+  },
+  {
+    name: "2012",
+    sales: 3908,
+    amt: 2000,
+  },
+  {
+    name: "2016",
+    sales: 4800,
+    amt: 2181,
+  },
+  {
+    name: "2020",
+    sales: 4790,
+    amt: 2500,
+  },
+  {
+    name: "2024",
+    sales: 5300,
+    amt: 2100,
+  },
+];
 
-// export default SparkLine;
-
-import * as React from "react";
-import {
-  SparklineComponent,
-  Inject,
-  SparklineTooltip,
-} from "@syncfusion/ej2-react-charts";
-const SparkLine = ({ currentColor, id, type, height, width, color }) => {
+const SparkLine = ({ width, height }) => {
+  const { theme } = useTheme();
+  console.log(theme);
   return (
-    <SparklineComponent
-      id={id}
-      height={height}
+    <LineChart
       width={width}
-      lineWidth={1}
-      lineSettings={{ color: color }}
-      markerSettings={{ visible: true }}
-      xName="xval"
-      yName="yval"
-      tooltipSettings={{
-        visible: true,
-        format: `${"xval"} : ${"yval"}`,
-      }}
-      dataSource={[
-        { x: 0, xval: "2005", yval: 20090440 },
-        { x: 1, xval: "2006", yval: 20264080 },
-        { x: 2, xval: "2007", yval: 20434180 },
-        { x: 3, xval: "2008", yval: 21007310 },
-        { x: 4, xval: "2009", yval: 21262640 },
-        { x: 5, xval: "2010", yval: 21515750 },
-        { x: 6, xval: "2011", yval: 21766710 },
-        { x: 7, xval: "2012", yval: 22015580 },
-        { x: 8, xval: "2013", yval: 22262500 },
-        { x: 9, xval: "2014", yval: 22507620 },
-      ]}
-      type={type}
+      height={height}
+      data={data}
+      majorGridLines="0"
+      minorGridLines="0"
     >
-      <Inject services={[SparklineTooltip]} />
-    </SparklineComponent>
+      <XAxis dataKey="name" />
+      <YAxis dataKey="sales" />
+      <Tooltip />
+      <Line type="monotone" dataKey="sales" stroke={theme} />
+    </LineChart>
   );
 };
+
 export default SparkLine;

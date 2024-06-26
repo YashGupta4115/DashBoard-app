@@ -1,26 +1,19 @@
-import {
-  AccumulationChartComponent,
-  AccumulationSeriesCollectionDirective,
-  AccumulationSeriesDirective,
-  Inject,
-  Tooltip,
-  PieSeries,
-  Legend,
-  AccumulationDataLabel,
-} from "@syncfusion/ej2-react-charts";
-import * as React from "react";
+import React from "react";
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import Header from "../../../Components/Header/Header";
 import { useTheme } from "../../../Context/themeContext";
+import "../../pages/Orders/Orders.css";
 
-const Pie = () => {
-  const data1 = [
-    { x: "United States", y: 45, text: "USA", fill: "#00226C" },
-    { x: "Australia", y: 53, text: "AUS: 14%", fill: "#0450C2" },
-    { x: "China", y: 56, text: "CHN", fill: "#0073DC" },
-    { x: "India", y: 61, text: "IND", fill: "#0D98FF" },
-    { x: "Japan", y: 40, text: "JPN", fill: "#9CD9FF" },
-    { x: "United Kingdom", y: 20, text: "UK", fill: "#0450C2" },
-  ];
+const data1 = [
+  { name: "United States", value: 45, fill: "#00226C" },
+  { name: "Australia", value: 53, fill: "#0450C2" },
+  { name: "China", value: 56, fill: "#0073DC" },
+  { name: "India", value: 61, fill: "#0D98FF" },
+  { name: "Japan", value: 40, fill: "#9CD9FF" },
+  { name: "United Kingdom", value: 20, fill: "#0450C2" },
+];
+
+const PieChartComponent = () => {
   const { displayMode } = useTheme();
 
   return (
@@ -30,37 +23,25 @@ const Pie = () => {
       }
     >
       <Header Category="Chart" title="Pie" />
-      <AccumulationChartComponent id="charts" height="470px">
-        <Inject
-          services={[PieSeries, Tooltip, Legend, AccumulationDataLabel]}
-        />
-        <AccumulationSeriesCollectionDirective>
-          <AccumulationSeriesDirective
-            dataSource={data1}
-            xName="x"
-            yName="y"
-            type="Pie"
-            dataLabel={{
-              visible: true,
-              name: "text",
-              position: "Outside",
-              font: {
-                fontWeight: "600",
-                color: "#000000",
-              },
-              connectorStyle: { length: "10%" },
-              template: `<div>${"point.text"}: ${"point.y"}%</div>`, // Custom label template
-            }}
-            tooltip={{ enable: true }}
-            legendSettings={{
-              visible: true,
-              position: "Top",
-            }}
-          />
-        </AccumulationSeriesCollectionDirective>
-      </AccumulationChartComponent>
+      <PieChart width={400} height={400}>
+        <Pie
+          data={data1}
+          dataKey="value"
+          nameKey="name"
+          cx="50%"
+          cy="50%"
+          outerRadius={150}
+          label={({ name, value }) => `${name}: ${value}%`}
+        >
+          {data1.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.fill} />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend />
+      </PieChart>
     </div>
   );
 };
 
-export default Pie;
+export default PieChartComponent;

@@ -1,23 +1,28 @@
-import React from "react";
-
-import {
-  ScheduleComponent,
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
-  Inject,
-  Resize,
-  DragAndDrop,
-} from "@syncfusion/ej2-react-schedule";
+import React, { useState } from "react";
 import "./Calendar.css";
-import { scheduleData } from "../../../Assests/data/dummy.js";
 import Header from "../../../Components/Header/Header.jsx";
 import { useTheme } from "../../../Context/themeContext.jsx";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
 
-const Calendar = () => {
+const CalendarApp = () => {
+  const [myEvents, setMyEvents] = useState([]);
+  const localizer = momentLocalizer(moment);
   const { displayMode } = useTheme();
+  const handleSelectSlot = ({ start, end }) => {
+    console.log(start);
+    let title = window.prompt("New Event name");
+    if (title) {
+      setMyEvents((prev) => [
+        ...prev,
+        { StartTime: start, EndTime: end, Subject: title },
+      ]);
+    }
+  };
+  const handleSelectEvent = (e) => {
+    window.alert(e.Subject);
+  };
+
   return (
     <div
       className={
@@ -25,17 +30,25 @@ const Calendar = () => {
       }
     >
       <Header Category="App" title="Calendar" />
-      <ScheduleComponent
-        height="650px"
-        eventSettings={{ dataSource: scheduleData }}
-        selectedDate={new Date(2021, 0, 10)}
-      >
-        <Inject
-          services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}
-        />
-      </ScheduleComponent>
+      <Calendar
+        localizer={localizer}
+        events={myEvents}
+        startAccessor="StartTime"
+        endAccessor="EndTime"
+        titleAccessor="Subject"
+        selectable
+        onSelectEvent={handleSelectEvent}
+        onSelectSlot={handleSelectSlot}
+        style={{
+          background: displayMode === "light" ? "papayawhip" : "#20232A",
+          color: displayMode === "light" ? "black" : "papayawhip",
+          height: "450px",
+          width: "800px",
+          cursor: "pointer",
+        }}
+      />
     </div>
   );
 };
 
-export default Calendar;
+export default CalendarApp;
