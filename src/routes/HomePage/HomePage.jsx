@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import CalendarApp from "../Apps/Calendar/Calendar";
 // import Editor from "../Apps/Editor/Editor";
 // import Colorpicker from "../Apps/ColorPicker/Colorpicker";
-// import Kanban from "../Apps/Kanban/Kanban";
+import Kanban from "../Apps/Kanban/Kanban";
 import Orders from "../pages/Orders/Orders";
 import Customers from "../pages/Customers/Customers";
 import Employees from "../pages/Employees/Employees";
@@ -55,8 +55,8 @@ const HomePage = () => {
           <Route path="/apps">
             <Route path="/apps/calendar" element={<CalendarApp />} />
             {/* <Route path="/apps/editor" element={<Editor />} />
-            <Route path="/apps/colorPicker" element={<Colorpicker />} />
-            <Route path="/apps/kanban" element={<Kanban />} />*/}
+            <Route path="/apps/colorPicker" element={<Colorpicker />} />*/}
+            <Route path="/apps/kanban" element={<Kanban />} />
           </Route>
 
           <Route path="/pages">

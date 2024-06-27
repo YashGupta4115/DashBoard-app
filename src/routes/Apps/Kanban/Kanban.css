@@ -6,3 +6,21 @@
     margin-top : 5rem;
     padding-bottom: 10rem;
 }
+.kanban-box{
+    display: flex;
+    justify-content: space-between;
+}
+.kanban-header{
+    margin : 0.5rem;
+    padding: 1rem;
+    width: 25%;
+}
+.kanban-header-title{
+    margin-bottom : 1.5rem;
+}
+.kanban-data{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+}
