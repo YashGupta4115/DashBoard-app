@@ -28,7 +28,7 @@ export const DropArea = ({ onDrop, status, position }) => {
 };
 
 const Kanban = () => {
-  const { displayMode, theme } = useTheme();
+  const { displayMode } = useTheme();
   const [activeTask, setActiveTask] = useState(null);
   const [tasks, setTasks] = useState(kanbanData);
 

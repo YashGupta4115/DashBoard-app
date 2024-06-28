@@ -39,7 +39,7 @@ const ECommerce = () => {
 
   // console.log(data);
   return (
-    <div className="e-commerce-page-container">
+    <div className="e-commerce-page-container" style={{ height: "100%" }}>
       <div className="earning-and-greeting-Section">
         <div className="earning-section">
           <span>

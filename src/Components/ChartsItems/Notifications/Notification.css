@@ -41,3 +41,31 @@
     text-align: right;
     width: 100px;
 }
+
+@media only screen and (max-width : 760px) {
+    .notification-container {
+        right: 3rem;
+        top: 3rem;
+    }
+}
+@media only screen and (max-width : 500px) {
+    .notification-container {
+        left: 5rem;
+    }
+}
+
+@media only screen and (max-width : 420px) {
+    .notification-container {
+        height: 200px;
+        width: 250px;
+        left: 3.5rem;
+    }
+}
+
+@media only screen and (max-width : 420px) {
+    .notification-container {
+        height: 200px;
+        width: 250px;
+        left: 1.8rem;
+    }
+}

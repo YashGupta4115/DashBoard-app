@@ -25,17 +25,17 @@ const Sidebar = () => {
     ],
     APPS: [
       { id: 1, name: "Calendar", title: "Calendar", route: "/apps/calendar" },
-      {
-        id: 2,
-        name: "ColorPicker",
-        title: "ColorPicker",
-        route: "/apps/colorPicker",
-      },
+      // {
+      //   id: 2,
+      //   name: "ColorPicker",
+      //   title: "ColorPicker",
+      //   route: "/apps/colorPicker",
+      // },
       { id: 3, name: "Kanban", title: "Kanban", route: "/apps/kanban" },
-      { id: 4, name: "Editor", title: "Editor", route: "/apps/editor" },
+      // { id: 4, name: "Editor", title: "Editor", route: "/apps/editor" },
     ],
     CHARTS: [
-      { id: 1, name: "Area", title: "Area", route: "/charts/area" },
+      { id: 1, name: "Bar", title: "Bar", route: "/charts/bar" },
       { id: 2, name: "Line", title: "Line", route: "/charts/line" },
       { id: 3, name: "Pie", title: "Pie", route: "/charts/pie" },
       // { id: 4, name: "Color", title: "Color", route: "/charts/color" },

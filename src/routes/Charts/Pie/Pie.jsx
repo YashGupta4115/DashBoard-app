@@ -3,6 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import Header from "../../../Components/Header/Header";
 import { useTheme } from "../../../Context/themeContext";
 import "../../pages/Orders/Orders.css";
+import { UseWindowDimensions } from "../Bar/Bar";
 
 const data1 = [
   { name: "United States", value: 45, fill: "#00226C" },
@@ -15,6 +16,8 @@ const data1 = [
 
 const PieChartComponent = () => {
   const { displayMode } = useTheme();
+  const wWidth = UseWindowDimensions().width;
+  const wHeight = 400;
 
   return (
     <div
@@ -23,7 +26,7 @@ const PieChartComponent = () => {
       }
     >
       <Header Category="Chart" title="Pie" />
-      <PieChart width={400} height={400}>
+      <PieChart width={wWidth < 768 ? wWidth * 0.8 : 600} height={wHeight}>
         <Pie
           data={data1}
           dataKey="value"

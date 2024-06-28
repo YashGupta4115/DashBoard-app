@@ -1,6 +1,4 @@
-.barChart-container{
-    display: flex;
-    flex-direction: column;
-    width : 90%;
-    margin-top : 5rem;
+.recharts-wrapper{
+    height: 500px;
+    width: 800px;
 }

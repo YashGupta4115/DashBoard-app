@@ -96,6 +96,7 @@
     width: 85%;
     margin-top : 2rem;
     margin-bottom: 2rem;
+    height: 100%;
 }
 .revenue-section-dark {
     display: flex;
@@ -108,6 +109,7 @@
     background-color: #33373E;
     padding: 20px;
     border-radius: 15px;
+    height: 100%;
 }
 
 .revenue-stat-section{
@@ -180,13 +182,22 @@
 }
 
 
-/* .extra-information{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+@media only screen and (max-width : 758px){
+    .stats-section{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+    }
+    .ecommerce-stats-item{
+        height : 10rem;
+    }
+    .ecommerce-stats-item-dark{
+        height: 10rem;
+    }
+    .revenue-stat-section{
+        display: flex;
+        flex-direction: column;
+        height: 65rem;
+        margin-bottom: 4rem;
+    }
 }
-
-.test{
-    background-color: #ed7cef;
-} */

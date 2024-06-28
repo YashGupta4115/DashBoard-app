@@ -1,6 +1,7 @@
 import "./Line.css";
 import Header from "../../../Components/Header/Header";
 import { useTheme } from "../../../Context/themeContext";
+import { UseWindowDimensions } from "../Bar/Bar";
 import {
   LineChart,
   Line,
@@ -27,6 +28,8 @@ const LineCharts = () => {
     { month: "Dec", product1: 32, product2: 72 },
   ];
   const { displayMode, theme } = useTheme();
+  const wWidth = UseWindowDimensions().width;
+  const wHeight = 400;
   return (
     <div
       className={
@@ -35,8 +38,8 @@ const LineCharts = () => {
     >
       <Header Category="Chart" title="Line Chart" />
       <LineChart
-        width={800}
-        height={480}
+        width={wWidth < 768 ? wWidth * 0.8 : 600}
+        height={wHeight}
         data={data}
         majorGridLines="0"
         minorGridLines="0"

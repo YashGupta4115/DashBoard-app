@@ -1,0 +1,56 @@
+.table-container{
+    width: 100%;
+    margin: "20px 0";
+    color: "black";
+    border-collapse: "collapse";
+    overflow-x: "scroll";
+    max-height: 500px;
+}
+.table-wrapper{
+    height: 500px;
+    overflow: scroll;
+}
+
+@media only screen and (max-width:1140px ){
+    .table-container{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:900px) {
+    .table-container {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    .table-wrapper{
+        height: 500px;
+        width : 550px;
+        overflow: scroll;
+    }
+}
+@media only screen and (max-width:660px) {
+    .table-wrapper {
+        width: 400px;
+        overflow: scroll;
+    }
+}
+@media only screen and (max-width:450px) {
+    .table-wrapper {
+        width: 350px;
+        overflow: scroll;
+    }
+}
+@media only screen and (max-width:376px) {
+    .table-wrapper {
+        width: 300px;
+        overflow: scroll;
+    }
+}
+@media only screen and (max-width:320px) {
+    .table-wrapper {
+        width: 270px;
+        overflow: scroll;
+    }
+}

@@ -6,7 +6,13 @@ const ThemeSetting = () => {
   const { displayMode, toggleDisplayMode, setTheme, setIsSettingOpen } =
     useTheme();
   return (
-    <div className="themeSetting-container">
+    <div
+      className="themeSetting-container"
+      style={{
+        background: displayMode === "dark" ? "#33373E" : "",
+        color: displayMode === "dark" ? "white" : "",
+      }}
+    >
       <div className="themeSetting-header">
         <div className="themeSetting-title">Setting</div>
         <IoIosCloseCircleOutline

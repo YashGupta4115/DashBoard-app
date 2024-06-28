@@ -48,3 +48,31 @@
     text-align: right;
     width: 100px;
 }
+
+@media only screen and (max-width : 760px) {
+    .chat-container {
+        right: 6rem;
+        top: 3rem;
+    }
+}
+@media only screen and (max-width : 500px) {
+    .chat-container {
+        left: 5rem;
+    }
+}
+@media only screen and (max-width : 420px) {
+    .chat-container {
+        height: 200px;
+        width: 250px;
+        left: 3.5rem;
+    }
+}
+
+@media only screen and (max-width : 420px) {
+    .chat-container {
+        height: 200px;
+        width: 250px;
+        left: 1.8rem;
+    }
+}
+

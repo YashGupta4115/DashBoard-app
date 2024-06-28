@@ -1,37 +1,48 @@
-import * as React from "react";
+import React, { useEffect } from "react";
+import { BarChart, Bar, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { useTheme } from "../../../Context/themeContext";
 import Header from "../../../Components/Header/Header";
 import "./Bar.css";
-import {
-  ChartComponent,
-  SeriesCollectionDirective,
-  SeriesDirective,
-  Inject,
-  ColumnSeries,
-  Legend,
-  Category,
-  Tooltip,
-  DataLabel,
-  LineSeries,
-} from "@syncfusion/ej2-react-charts";
-import { useTheme } from "../../../Context/themeContext";
-const Bar = () => {
-  const data = [
-    { country: "USA", gold: 50, silver: 70, bronze: 45 },
-    { country: "China", gold: 40, silver: 60, bronze: 55 },
-    { country: "Japan", gold: 70, silver: 60, bronze: 50 },
-    { country: "Australia", gold: 60, silver: 56, bronze: 40 },
-    { country: "France", gold: 50, silver: 45, bronze: 35 },
-    { country: "Germany", gold: 40, silver: 30, bronze: 22 },
-    { country: "Italy", gold: 40, silver: 35, bronze: 37 },
-    { country: "Sweden", gold: 30, silver: 25, bronze: 27 },
-  ];
-  const primaryxAxis = { valueType: "Category", title: "Countries" };
-  const primaryyAxis = {
-    minimum: 0,
-    maximum: 80,
-    interval: 20,
-    title: "Medals",
-  };
+
+const data = [
+  { month: "Jan", product1: 35, product2: 65 },
+  { month: "Feb", product1: 28, product2: 48 },
+  { month: "Mar", product1: 34, product2: 34 },
+  { month: "Apr", product1: 32, product2: 12 },
+  { month: "May", product1: 40, product2: 10 },
+  { month: "Jun", product1: 32, product2: 32 },
+  { month: "Jul", product1: 35, product2: 75 },
+  { month: "Aug", product1: 55, product2: 35 },
+  { month: "Sep", product1: 38, product2: 55 },
+  { month: "Oct", product1: 30, product2: 90 },
+  { month: "Nov", product1: 25, product2: 15 },
+  { month: "Dec", product1: 32, product2: 72 },
+];
+
+export const UseWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = React.useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handelResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener("resize", handelResize);
+    return () => {
+      window.removeEventListener("resize", handelResize);
+    };
+  }, []);
+  return windowDimensions;
+};
+
+const BarCharts = () => {
+  const wWidth = UseWindowDimensions().width;
+  const wHeight = 400;
   const { displayMode } = useTheme();
   return (
     <div
@@ -39,54 +50,29 @@ const Bar = () => {
         displayMode === "light" ? "orders-container" : "orders-container-dark"
       }
     >
-      <Header Category="Chart" title="Bar Chart" />
-      <ChartComponent
-        id="charts"
-        primaryXAxis={primaryxAxis}
-        primaryYAxis={primaryyAxis}
-        title="Olympic Medals"
-        height="400px"
-        tooltip={{ enable: true }}
-        legendSettings={{
-          visible: true,
-          position: "Top",
+      <Header Category="Charts" title="Bar Chart" />
+      {/* <ResponsiveContainer width="100%" height="80%"> */}
+      <BarChart
+        width={wWidth < 768 ? wWidth * 0.8 : 600}
+        height={wHeight}
+        data={data}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 20,
+          bottom: 5,
         }}
       >
-        <Inject
-          services={[
-            ColumnSeries,
-            Legend,
-            Tooltip,
-            DataLabel,
-            LineSeries,
-            Category,
-          ]}
-        />
-        <SeriesCollectionDirective>
-          <SeriesDirective
-            dataSource={data}
-            xName="country"
-            yName="gold"
-            type="Column"
-            name="Gold"
-          ></SeriesDirective>
-          <SeriesDirective
-            dataSource={data}
-            xName="country"
-            yName="silver"
-            type="Column"
-            name="Silver"
-          ></SeriesDirective>
-          <SeriesDirective
-            dataSource={data}
-            xName="country"
-            yName="bronze"
-            type="Column"
-            name="Bronse"
-          ></SeriesDirective>
-        </SeriesCollectionDirective>
-      </ChartComponent>
+        <CartesianGrid strokeDasharray="3 3" />
+        {/* <XAxis dataKey="name" /> */}
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="product1" stackId="a" fill="#8884d8" />
+        <Bar dataKey="product2" stackId="a" fill="#82ca9d" />
+      </BarChart>
+      {/* </ResponsiveContainer> */}
     </div>
   );
 };
-export default Bar;
+export default BarCharts;

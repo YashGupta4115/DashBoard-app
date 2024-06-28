@@ -13,7 +13,7 @@ function App() {
       style={{
         backgroundColor: displayMode === "light" ? "" : darkThemeBackground,
         color: displayMode === "light" ? "" : darkThemeColor,
-        height: "100%",
+        height: '100%'
       }}
     >
       <HomePage/>

@@ -42,9 +42,10 @@ const CalendarApp = () => {
         style={{
           background: displayMode === "light" ? "papayawhip" : "#20232A",
           color: displayMode === "light" ? "black" : "papayawhip",
-          height: "450px",
-          width: "800px",
+          height: "400px",
+          width: "90%",
           cursor: "pointer",
+          zIndex: "1",
         }}
       />
     </div>

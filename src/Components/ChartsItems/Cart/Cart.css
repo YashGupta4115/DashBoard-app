@@ -57,3 +57,30 @@
     position: absolute;
     bottom: 1rem;    
 }
+
+@media only screen and (max-width : 760px){
+    .cart-container {
+        right: 7.5rem;
+        top: 3rem;
+    }
+}
+@media only screen and (max-width : 500px) {
+    .cart-container {
+        left: 5rem;
+    }
+}
+@media only screen and (max-width : 420px) {
+    .cart-container {
+        height: 200px;
+        width: 250px;
+        left: 3.5rem;
+    }
+}
+
+@media only screen and (max-width : 420px) {
+    .cart-container {
+        height: 200px;
+        width: 250px;
+        left: 1.8rem;
+    }
+}

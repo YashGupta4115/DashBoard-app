@@ -1,5 +1,4 @@
 import React from "react";
-import "./Customers.css";
 
 import { customersData, customersGrid } from "../../../Assests/data/dummy";
 import Header from "../../../Components/Header/Header";

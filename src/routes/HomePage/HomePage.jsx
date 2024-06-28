@@ -9,7 +9,7 @@ import Kanban from "../Apps/Kanban/Kanban";
 import Orders from "../pages/Orders/Orders";
 import Customers from "../pages/Customers/Customers";
 import Employees from "../pages/Employees/Employees";
-import AreaCharts from "../Charts/Area/Area";
+import BarCharts from "../Charts/Bar/Bar";
 // import Line from "../Charts/Line/Line";
 import Pie from "../Charts/Pie/Pie";
 // import Color from "../Charts/Color/Color";
@@ -66,7 +66,7 @@ const HomePage = () => {
           </Route>
 
           <Route path="/charts">
-            <Route path="/charts/area" element={<AreaCharts />} />
+            <Route path="/charts/bar" element={<BarCharts />} />
             <Route path="/charts/line" element={<LineCharts />} />
             <Route path="/charts/pie" element={<Pie />} />
             {/*<Route path="/charts/color" element={<Color />} />
