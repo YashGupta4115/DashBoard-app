@@ -32,7 +32,6 @@ body{
   /* width: 100%; */
 }
 .themeSettingButton{
-  z-index: 2;
   position: fixed;
   right: 5rem;
   bottom : 5rem;

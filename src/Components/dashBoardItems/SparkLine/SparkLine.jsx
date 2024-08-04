@@ -42,7 +42,6 @@ const data = [
 
 const SparkLine = ({ width, height }) => {
   const { theme } = useTheme();
-  console.log(theme);
   return (
     <LineChart
       width={width}

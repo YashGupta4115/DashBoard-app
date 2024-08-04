@@ -5,15 +5,17 @@ import { useContext, useEffect } from "react";
 import { SideBarContext } from "../../Context/contextProvider";
 import Chat from "../ChartsItems/Chat/Chat.jsx";
 import UserProfile from "../ChartsItems/UserProfile/UserProfile.jsx";
-import Cart from "../ChartsItems/Cart/Cart.jsx";
+// import Cart from "../ChartsItems/Cart/Cart.jsx";
 import Notifications from "../ChartsItems/Notifications/Notifications.jsx";
 import { Link } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { useTheme } from "../../Context/themeContext.jsx";
 import NavBarItem from "./NavBar.item.jsx";
 import navItems from "../../Assests/navBar.json";
+import { UserContext } from "../../Context/UserContext.jsx";
 
 const Navbar = () => {
+  const { currentUser } = useContext(UserContext);
   const {
     isSideBarOpen,
     setIsSideBarOpen,
@@ -74,16 +76,21 @@ const Navbar = () => {
 
         {/* user-Profile section will remain at constant position */}
         <div className="navBar-icons-container">
-          <AiOutlineUser
-            className="navBar-icons"
-            onClick={() => handleClick("userProfile")}
-          />
+          {currentUser ? (
+            <div onClick={() => handleClick("userProfile")}>
+              {currentUser.displayName || "User"}
+            </div>
+          ) : (
+            <AiOutlineUser
+              className="navBar-icons"
+              onClick={() => handleClick("userProfile")}
+            />
+          )}
         </div>
         {/* user-profile section ends */}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notifications />}
         {isClicked.userProfile && <UserProfile />}
-        {isClicked.cart && <Cart />}
       </div>
     </div>
   );

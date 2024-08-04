@@ -1,13 +1,6 @@
 {
   "navBar": [
     {
-      "id": 3,
-      "name": "Cart",
-      "icon": "AiOutlineShoppingCart",
-      "navNumber" : "4",
-      "afterClick": "cart"
-    },
-    {
       "id": 4,
       "name": "Messages",
       "icon": "AiOutlineMessage",

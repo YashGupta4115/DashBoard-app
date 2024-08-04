@@ -24,15 +24,22 @@ import ThemeSetting from "../../Components/themeSetting/ThemeSetting.jsx";
 import { CiSettings } from "react-icons/ci";
 import LineCharts from "../Charts/Line/Line.jsx";
 import "../../App.css";
+import SignIn from "../../Components/Auth/SignIn.jsx";
+import Queries from "../pages/Queries/Queries.jsx";
+import { UserContext } from "../../Context/UserContext.jsx";
 
 const HomePage = () => {
+  const { currentUser } = useContext(UserContext);
+
   const { displayMode, isSettingOpen, setIsSettingOpen, theme } = useTheme();
 
   const darkThemeBackground = "#20232A";
   const darkThemeColor = "#E5FAFB";
   const { isSideBarOpen, screenSize } = useContext(SideBarContext);
 
-  return (
+  return !currentUser ? (
+    <SignIn />
+  ) : (
     <div
       className="page-container"
       style={{
@@ -50,7 +57,9 @@ const HomePage = () => {
         }
       >
         <Navbar />
+
         <Routes>
+          <Route path="/sign-in" element={<SignIn />} />
           <Route index element={<ECommerce />} />
           <Route path="/apps">
             <Route path="/apps/calendar" element={<CalendarApp />} />
@@ -63,6 +72,7 @@ const HomePage = () => {
             <Route path="/pages/orders" element={<Orders />} />
             <Route path="/pages/customers" element={<Customers />} />
             <Route path="/pages/employees" element={<Employees />} />
+            <Route path="/pages/queries" element={<Queries />} />
           </Route>
 
           <Route path="/charts">

@@ -22,6 +22,12 @@ const Sidebar = () => {
         title: "Employees",
         route: "/pages/employees",
       },
+      {
+        id: 4,
+        name: "queries",
+        title: "Queries",
+        route: "/pages/queries",
+      },
     ],
     APPS: [
       { id: 1, name: "Calendar", title: "Calendar", route: "/apps/calendar" },
@@ -110,7 +116,6 @@ const Sidebar = () => {
                     }`}
                     to={child.route}
                     onClick={() => {
-                      console.log(child.name);
                       handleSideBar(child.name);
                     }}
                     style={{
