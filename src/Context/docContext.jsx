@@ -1,11 +1,14 @@
-import { createContext, useEffect, useState } from "react";
-import { getCategoriesAndDocuments } from "../Firebase/firebase";
+import { createContext, useContext, useEffect, useState } from "react";
+import { getAuthDoc, getCategoriesAndDocuments } from "../Firebase/firebase";
+import { UserContext } from "./UserContext";
 
 export const docContext = createContext();
 
 export const DocContextProvider = ({ children }) => {
   const [queries, setQueries] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { currentUser, setUserDoc } = useContext(UserContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,11 +17,16 @@ export const DocContextProvider = ({ children }) => {
         "serviceDeskData",
         "queries"
       );
+      if (currentUser) {
+        const userDocument = await getAuthDoc(currentUser.uid);
+        setUserDoc(userDocument);
+      }
       setQueries(response);
       setIsLoading(false);
     };
     fetchData();
-  }, [setQueries]);
+  }, [setQueries, currentUser, setUserDoc]);
+
   const value = {
     queries,
   };

@@ -27,15 +27,21 @@ import "../../App.css";
 import SignIn from "../../Components/Auth/SignIn.jsx";
 import Queries from "../pages/Queries/Queries.jsx";
 import { UserContext } from "../../Context/UserContext.jsx";
+import AssignedQueries from "../pages/AssignedQueries/AssignedQueries.jsx";
 
 const HomePage = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, isAuthChecked } = useContext(UserContext);
 
   const { displayMode, isSettingOpen, setIsSettingOpen, theme } = useTheme();
 
   const darkThemeBackground = "#20232A";
   const darkThemeColor = "#E5FAFB";
   const { isSideBarOpen, screenSize } = useContext(SideBarContext);
+
+  if (!isAuthChecked) {
+    // Show a loading spinner or some other UI while auth state is being checked
+    return <div>Loading...</div>;
+  }
 
   return !currentUser ? (
     <SignIn />
@@ -73,6 +79,10 @@ const HomePage = () => {
             <Route path="/pages/customers" element={<Customers />} />
             <Route path="/pages/employees" element={<Employees />} />
             <Route path="/pages/queries" element={<Queries />} />
+            <Route
+              path="/pages/assignedQueries"
+              element={<AssignedQueries />}
+            />
           </Route>
 
           <Route path="/charts">

@@ -15,7 +15,7 @@ import navItems from "../../Assests/navBar.json";
 import { UserContext } from "../../Context/UserContext.jsx";
 
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, userDoc } = useContext(UserContext);
   const {
     isSideBarOpen,
     setIsSideBarOpen,
@@ -77,8 +77,11 @@ const Navbar = () => {
         {/* user-Profile section will remain at constant position */}
         <div className="navBar-icons-container">
           {currentUser ? (
-            <div onClick={() => handleClick("userProfile")}>
-              {currentUser.displayName || "User"}
+            <div
+              style={{ fontSize: "20px" }}
+              onClick={() => handleClick("userProfile")}
+            >
+              {userDoc ? userDoc.displayName : "User"}
             </div>
           ) : (
             <AiOutlineUser
