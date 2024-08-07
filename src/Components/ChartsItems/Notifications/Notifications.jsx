@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "./Notification.css";
 import { parseISO, format } from "date-fns";
-import notificationData from "../../../Assests/navBar.json";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { SideBarContext } from "../../../Context/contextProvider";
+import { UserContext } from "../../../Context/UserContext";
 
 export const FormatDate = (isoString) => {
   const date = parseISO(isoString);
@@ -12,13 +12,15 @@ export const FormatDate = (isoString) => {
 
 const Notifications = () => {
   const { handleClick } = useContext(SideBarContext);
+  const { userDoc } = useContext(UserContext);
+
   return (
     <div className="notification-container">
       <div className="navPopUp-title">
         <div>
           Notifications{" "}
-          {notificationData.notifications.length > 0 ? (
-            <span>{`(${notificationData.notifications.length})`}</span>
+          {userDoc.notifications ? (
+            <span>{`(${userDoc.notifications.length})`}</span>
           ) : (
             ""
           )}
@@ -29,16 +31,13 @@ const Notifications = () => {
         />
       </div>
       <hr />
-      {notificationData.notifications.map((notification) => {
-        let time = notification.time;
+      {userDoc.notifications.map((notification, index) => {
         return (
-          <div key={notification.id} className="notification-box">
+          <div key={index} className="notification-box">
             <div></div>
             <div className="notification-typeAndData">
-              <span className="notification-type">{notification.type}</span>
-              <span className="notification-data">{notification.message}</span>
+              <span className="notification-data">{notification}</span>
             </div>
-            <div className="notification-time">{FormatDate(time)}</div>
           </div>
         );
       })}

@@ -149,6 +149,29 @@ export const updateDocData = async (collectionKey, documentKey, selectedQuery) =
     console.log("Error getting document data", error);
   }
 };
+export const updateStatusDocOfAllCollection = async (collectionKey, documentKey, field, updateId,notification) => {
+  const docRef = doc(db, collectionKey, documentKey);
+  const docSnapshot = await getDoc(docRef);
+
+  try {
+    if(docSnapshot.exists()){
+      const data = docSnapshot.data();
+      const updatedData = data[field].map((query)=> 
+        query.orderTitle === updateId ? {...query , status : 'Resolved'} : query
+      )
+
+      if(notification){
+        const updatedNotification = [...(data.notifications || []),notification]
+        await updateDoc(docRef, { [field]: updatedData, notifications : updatedNotification });
+      }
+      console.log("all doc updated successfully!");
+    }else{
+      console.log("No document found to update");
+    }
+  }catch( error){
+    console.log("error updating doc of all Collection",error);
+  }
+};
 
 export const onEmpStateChangedListener = (callback) => onAuthStateChanged(auth,callback);
 
